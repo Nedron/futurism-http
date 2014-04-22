@@ -19,6 +19,10 @@ var redisSession = require('./fns/redisSession');
 redisSession.connect(process.env.REDIS_URI);
 
 
+//--- create default lobbies
+require('./config/defaultLobbies')();
+
+
 //--- middleware
 expr.use(express.errorHandler({
     dumpExceptions: true,

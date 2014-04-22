@@ -8,18 +8,33 @@ var createDefaultLobbies = function() {
             open: true,
             date: new Date(),
             minElo: 0
-        }, {
+        },
+        {
             upsert: true
-        });
+        },
+        function(err) {
+            if(err) {
+                console.log(err);
+            }
+        }
+    );
+
 
     Lobby.findByIdAndUpdate('Masters', {
             server: serverFns.nextServerId(),
             open: true,
             date: new Date(),
             minElo: 300
-        }, {
+        },
+        {
             upsert: true
-        });
+        },
+        function(err) {
+            if(err) {
+                console.log(err);
+            }
+        }
+    );
 
 };
 

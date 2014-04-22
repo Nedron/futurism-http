@@ -43,7 +43,7 @@ module.exports = {
             return callback('no guildId in session');
         }
 
-        Lobby.create({
+        return Lobby.create({
             _id: guildId,
             open: false,
             server: serverFns.nextServerId(),
