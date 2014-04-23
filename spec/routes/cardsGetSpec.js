@@ -6,7 +6,7 @@ describe('cards-get', function() {
     mockgoose(mongoose);
     var factions = require('../../../futurism-shared/factions');
     var cards = require('../../routes/cards');
-    var CardGoose = require('../../models/card');
+    var CardGoose = require('../../shared/models/Card');
 
 
     var userId1 = mongoose.Types.ObjectId();

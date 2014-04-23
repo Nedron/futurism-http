@@ -4,7 +4,7 @@ describe('record', function () {
     var mockgoose = require('mockgoose');
     mockgoose(mongoose);
 
-    var RecordGoose = require('../../models/record');
+    var RecordGoose = require('../../shared/models/Record');
 
 
     beforeEach(function () {

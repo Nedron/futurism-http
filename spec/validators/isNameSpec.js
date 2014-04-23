@@ -1,6 +1,6 @@
 'use strict';
 
-var isName = require('../../../server/validators/isName');
+var isName = require('../../validators/isName');
 
 describe('isNameDisplay', function() {
 

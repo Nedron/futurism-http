@@ -4,7 +4,7 @@ describe('decks-delete', function() {
     var mockgoose = require('mockgoose');
     mockgoose(mongoose);
 
-    var DeckGoose = require('../../models/deck');
+    var DeckGoose = require('../../shared/models/Deck');
     var decksDelete = require('../../routes/decksDelete');
 
 

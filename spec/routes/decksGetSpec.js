@@ -4,8 +4,8 @@ describe('decks-get', function() {
     var mockgoose = require('mockgoose');
     mockgoose(mongoose);
 
-    var CardGoose = require('../../models/card'); //need this for deck model
-    var DeckGoose = require('../../models/deck');
+    var CardGoose = require('../../shared/models/Card'); //need this for deck model
+    var DeckGoose = require('../../shared/models/Deck');
     var decksGet = require('../../routes/decksGet');
 
 

@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var mockgoose = require('mockgoose');
 mockgoose(mongoose);
 
-var findOneAndSave = require('../../../../server/fns/mongoose/findOneAndSave');
+var findOneAndSave = require('../../../fns/mongoose/findOneAndSave');
 
 
 var TestSchema = new mongoose.Schema({

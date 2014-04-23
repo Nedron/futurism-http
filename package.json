@@ -3,10 +3,10 @@
   "description": "http server for Futurism, a multiplayer card game",
   "version": "0.0.5",
   "private": false,
-  "main": "server/server.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node server",
-    "test": "grunt test"
+    "start": "grunt serve",
+    "test": "jasmine-node spec --autotest --color --watch *.js config fns middleware routes shared static validators"
   },
   "engines": {
     "node": "0.10.x"
@@ -29,6 +29,7 @@
   "devDependencies": {
     "sinon": "~1.9.1",
     "jshint-stylish": "~0.1.5",
-    "grunt-nodemon": "~0.2.1"
+    "grunt-nodemon": "~0.2.1",
+    "mockgoose": "~1.8.1"
   }
 }

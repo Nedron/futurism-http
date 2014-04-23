@@ -22,7 +22,7 @@ module.exports = function (grunt) {
                     'routes/**/*.js',
                     'config/**/*.js',
                     '*.js',
-                    '../futurism-shared/**/*.js'
+                    'shared/**/*.js'
                 ]
             }
         },

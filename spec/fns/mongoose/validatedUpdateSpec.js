@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var mockgoose = require('mockgoose');
 mockgoose(mongoose);
 
-var validatedUpdate = require('../../../../server/fns/mongoose/validatedUpdate');
+var validatedUpdate = require('../../../fns/mongoose/validatedUpdate');
 var _ = require('lodash');
 
 

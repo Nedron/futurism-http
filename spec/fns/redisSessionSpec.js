@@ -1,7 +1,7 @@
 /* global describe, beforeEach, afterEach, it, expect */
 'use strict';
 
-var redisSession = require('../../../server/fns/redisSession');
+var redisSession = require('../../shared/redisSession');
 
 describe('redisSession', function() {
 

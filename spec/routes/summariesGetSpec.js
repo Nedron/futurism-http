@@ -5,7 +5,7 @@ describe('records - get', function() {
     mockgoose(mongoose);
 
     var summariesGet = require('../../routes/summariesGet');
-    var RecordGoose = require('../../models/record');
+    var RecordGoose = require('../../shared/models/Record');
 
 
 
