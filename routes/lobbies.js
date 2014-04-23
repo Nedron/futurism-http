@@ -1,7 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
-var Lobby = require('../models/lobby');
+var Lobby = require('../shared/models/Lobby');
 var serverFns = require('../fns/serverFns');
 
 
@@ -20,10 +20,7 @@ module.exports = {
             _.each(lobbies, function(lobby) {
                 if(!lobby.server || !serverFns.isServerId(lobby.server)) {
                     lobby.server = serverFns.nextServerId();
-
-                    Lobby.findByIdAndUpdate(lobby._id, _.omit(lobby, '_id'), {upsert: true}, function(err, updatedLobby) {
-                        console.log('update result', err, updatedLobby);
-                    });
+                    Lobby.findByIdAndUpdate(lobby._id, _.omit(lobby, '_id'), {upsert: true});
                 }
             });
 

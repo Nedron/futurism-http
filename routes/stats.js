@@ -1,6 +1,6 @@
 'use strict';
 
-var Stats = require('../models/stats');
+var Stats = require('../shared/models/Stats');
 
 
 module.exports = {

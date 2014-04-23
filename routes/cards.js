@@ -1,8 +1,8 @@
 'use strict';
 
-var Card = require('../models/card');
-var groups = require('../../futurism-shared/groups');
-var globe = require('../fns/globe');
+var Card = require('../shared/models/Card');
+var groups = require('../shared/groups');
+var globe = require('../shared/globe');
 
 
 module.exports = {
@@ -73,7 +73,6 @@ module.exports = {
             query = {$or: [{userId: userId}, {canon: true}]};
         }
 
-        console.log(query, page, count);
         Card.paginate(query, page, count, function(err, pageCount, results) {
             return res.apiOut(err, {pageCount: pageCount, results: results, page: page});
         }, {sortBy: {updated:-1}});

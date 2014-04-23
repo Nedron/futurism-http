@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    var RecordGoose = require('../models/record');
+    var RecordGoose = require('../shared/models/Record');
 
     /**
      * Return a full game record if gameId is provided

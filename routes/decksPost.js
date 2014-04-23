@@ -1,7 +1,7 @@
 'use strict';
 
 var createHashId = require('../fns/createHashId');
-var Deck = require('../models/deck');
+var Deck = require('../shared/models/Deck');
 var _ = require('lodash');
 
 /**

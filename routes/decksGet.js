@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    var Deck = require('../models/deck');
+    var Deck = require('../shared/models/Deck');
 
 
     var replyWithDeck = function(req, res) {

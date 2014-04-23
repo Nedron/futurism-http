@@ -1,41 +1,40 @@
-var Lobby = require('../models/lobby');
-var serverFns = require('../fns/serverFns');
+var _ = require('lodash');
+var Lobby = require('../shared/models/Lobby');
+
+var defaultOptions = {
+    _id: 'Default',
+    server: 1,
+    open: true,
+    date: new Date(),
+    minRank: 0,
+    minElo: 0
+};
+
+
+var createLobby = function(options) {
+    _.defaults(options, defaultOptions);
+    Lobby.findByIdAndUpdate(options._id, options, {upsert: true});
+};
+
 
 var createDefaultLobbies = function() {
 
-    Lobby.findByIdAndUpdate('Brutus', {
-            server: serverFns.nextServerId(),
-            open: true,
-            date: new Date(),
-            minElo: 0
-        },
-        {
-            upsert: true
-        },
-        function(err) {
-            if(err) {
-                console.log(err);
-            }
-        }
-    );
+    createLobby({
+        _id: 'Brutus',
+        server: 1,
+        open: true,
+        date: new Date(),
+        minElo: 0
+    });
 
 
-    Lobby.findByIdAndUpdate('Masters', {
-            server: serverFns.nextServerId(),
-            open: true,
-            date: new Date(),
-            minElo: 300
-        },
-        {
-            upsert: true
-        },
-        function(err) {
-            if(err) {
-                console.log(err);
-            }
-        }
-    );
-
+    createLobby({
+        _id: 'Masters',
+        server: 1,
+        open: true,
+        date: new Date(),
+        minElo: 0
+    });
 };
 
 module.exports = createDefaultLobbies;

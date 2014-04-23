@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    var session = require('../fns/redisSession');
+    var session = require('../shared/redisSession');
 
 
     module.exports = function(req, res, next) {

@@ -23,7 +23,8 @@
     "validator": "~1.5.1",
     "lodash": "~2.4.1",
     "http-proxy": "~1.0.1",
-    "redis": "~0.10.1"
+    "redis": "~0.10.1",
+    "randomstring": "~1.0.3"
   },
   "devDependencies": {
     "sinon": "~1.9.1",

@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGO_URI);
 
 
 //--- redis connect
-var redisSession = require('./fns/redisSession');
+var redisSession = require('./shared/redisSession');
 redisSession.connect(process.env.REDIS_URI);
 
 
