@@ -8,13 +8,7 @@
      * Serve index page to unknown requests
      */
     module.exports = function(req, res) {
-        var index;
-        if(process.env.NODE_ENV === 'development') {
-            index = './client/src/index.html';
-        }
-        else {
-            index = '../client/dist/index.html';
-        }
+        var index = 'client/index.html';
         fs.readFile(index, 'utf8', function (err, indexContent) {
             if(err) {
                 throw new Error(err);

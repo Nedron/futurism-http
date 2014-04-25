@@ -36,6 +36,7 @@ module.exports = function(expr) {
 
     expr.get('/api/tests', continueSession, require('./routes/testsGet'));
 
+    // alternate: '!\\.html|\\.js|\\.css|\\.swf|\\.json|\\.mp3|\\.ogg|\\.png|\\.jpg$'
     expr.get(/^(?!\/api)((?!\.).)*$/i, require('./routes/indexGet')); //--- this ridiculous regex matches any string that does not start with '/api' and does not contain a period.
 
 };

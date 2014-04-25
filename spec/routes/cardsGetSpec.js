@@ -4,7 +4,7 @@ describe('cards-get', function() {
     var mongoose = require('mongoose');
     var mockgoose = require('mockgoose');
     mockgoose(mongoose);
-    var factions = require('../../../futurism-shared/factions');
+    var factions = require('../../shared/factions');
     var cards = require('../../routes/cards');
     var CardGoose = require('../../shared/models/Card');
 
@@ -22,7 +22,7 @@ describe('cards-get', function() {
                 health: 1,
                 faction: factions.machine.id
             },
-            function(err, card) {
+            function(err) {
                 if(err) {
                     return done(err);
                 }
@@ -37,7 +37,7 @@ describe('cards-get', function() {
                         faction: factions.machine.id,
                         canon: true
                     },
-                    function(err, card) {
+                    function(err) {
                         if(err) {
                             return done(err);
                         }

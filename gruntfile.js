@@ -27,7 +27,8 @@ module.exports = function (grunt) {
                     'routes/**/*.js',
                     'config/**/*.js',
                     '*.js',
-                    'shared/**/*.js'
+                    'shared/**/*.js',
+                    'validators/**/*.js'
                 ]
             }
         },
@@ -92,12 +93,12 @@ module.exports = function (grunt) {
             
             // deploy to a staging server
             deploy: {
-                command: 'modulus deploy --project-name futurism-web-staging',
+                command: 'modulus deploy --project-name futurism-http-staging',
             },
             
             // deploy to a production server
             deployLive: {
-                command: 'modulus deploy --project-name futurism-web',
+                command: 'modulus deploy --project-name futurism-http',
             }
         }
 

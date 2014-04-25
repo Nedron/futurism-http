@@ -1,10 +1,12 @@
 describe('cards-delete', function() {
 
+    'use strict';
+    
     var mongoose = require('mongoose');
     var mockgoose = require('mockgoose');
     mockgoose(mongoose);
-    var groups = require('../../../futurism-shared/groups');
-    var factions = require('../../../futurism-shared/factions');
+    var groups = require('../../shared/groups');
+    var factions = require('../../shared/factions');
     var CardGoose = require('../../shared/models/Card');
     var cards = require('../../routes/cards');
 

@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    var groups = require('../../futurism-shared/groups');
+    var groups = require('../shared/groups');
 
     module.exports = function(req, res, next) {
         if (req.session && req.session._id && (req.user.group === groups.MOD || req.user.group === groups.ADMIN)) {
