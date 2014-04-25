@@ -3,6 +3,7 @@
 var Card = require('../shared/models/Card');
 var groups = require('../shared/groups');
 var globe = require('../shared/globe');
+var paginate = require('../fns/mongoose/paginate');
 
 
 module.exports = {
@@ -73,7 +74,7 @@ module.exports = {
             query = {$or: [{userId: userId}, {canon: true}]};
         }
 
-        Card.paginate(query, page, count, function(err, pageCount, results) {
+        paginate(Card, query, page, count, function(err, pageCount, results) {
             return res.apiOut(err, {pageCount: pageCount, results: results, page: page});
         }, {sortBy: {updated:-1}});
     },

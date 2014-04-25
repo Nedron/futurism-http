@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 
 /**
  * @method paginate
+ * @param {mongoose.Model} model Mongoose Model
  * @param {Object} q Mongoose Query Object
  * @param {Number} pageNumber
  * @param {Number} resultsPerPage
@@ -14,8 +15,7 @@ var mongoose = require('mongoose');
  * Extend Mongoose Models to paginate queries
  **/
 
-var paginate = function(q, pageNumber, resultsPerPage, callback, options) {
-    var model = this;
+var paginate = function(model, q, pageNumber, resultsPerPage, callback, options) {
     var options = options || {};
     var columns = options.columns || null;
     var sortBy = options.sortBy || {_id:1};
