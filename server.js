@@ -40,7 +40,7 @@ expr.use('/api', require('./middleware/consolidateQuery'));
 
 
 //--- serve static files (more middleware, technically)
-expr.use('/', express.static('/static'));
+expr.use('/', express.static('/client'));
 
 
 //--- load routes

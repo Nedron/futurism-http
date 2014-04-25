@@ -2,13 +2,18 @@
 
 module.exports = function (grunt) {
 
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-nodemon');
-    
+    grunt.loadNpmTasks('grunt-shell');
+
+
     // Define the configuration for all the tasks
     grunt.initConfig({
-        
-        
-        // 
+
+
+        // Auto restart the server when a file changes
         nodemon: {
             dev: {
                 script: 'testServer.js'
@@ -27,7 +32,7 @@ module.exports = function (grunt) {
             }
         },
 
-        
+
         // Make sure code styles are up to par and there are no obvious mistakes
         jshint: {
             options: {
@@ -36,39 +41,63 @@ module.exports = function (grunt) {
             },
             all: [
                 'gruntfile.js',
-                '<%= yeoman.app %>/scripts/**/*.js'
+                'fns/**/*.js',
+                'midleware/**/*.js',
+                'routes/**/*.js',
+                'validators/**/*.js'
             ],
             test: {
                 options: {
-                    jshintrc: 'test/.jshintrc'
+                    jshintrc: 'spec/.jshintrc'
                 },
-                src: ['test/spec/{,*/}*.js']
+                src: ['spec/**/*.js']
             }
         },
 
 
-        // Run the node server in server/testServer.js
-        develop: {
-            server: {
-                file: '<%= yeoman.server %>/testServer.js',
-                nodeArgs: []
+        // Copy in client files before upload
+        // the directories are odd to work around this bug: https://github.com/gruntjs/grunt-contrib-copy/issues/156
+        copy: {
+            client: {
+                files: [
+                    {
+                        expand: true,
+                        src: ['./**'],
+                        dest: '../futurism-http/client/',
+                        cwd: '../futurism-client/dist',
+                    },
+                ]
             }
         },
-
-
-        // shell commands
+        
+        
+        // Delete the client files when we're done with them
+        clean: [
+            'client'
+        ],
+        
+        
+        // Shell commands
         shell: {
-            jasmine: {
-                command: 'jasmine-node server/spec --forceexit',
+            
+            // build an optimized version of the client
+            clientBuild: {
+                command: 'grunt build',
                 options: {
-                    stdout: true
+                    execOptions: {
+                        cwd: '../futurism-client'
+                    }
                 }
             },
-            jasmineWatch: {
-                command: 'jasmine-node server/spec --autotest --color --watch server/*.js server/fns server/middleware server/models server/multi server/routes shared',
-                options: {
-                    stdout: true
-                }
+            
+            // deploy to a staging server
+            deploy: {
+                command: 'modulus deploy --project-name futurism-web-staging',
+            },
+            
+            // deploy to a production server
+            deployLive: {
+                command: 'modulus deploy --project-name futurism-web',
             }
         }
 
@@ -76,9 +105,35 @@ module.exports = function (grunt) {
 
 
 
-    grunt.registerTask('serve', function (target) {
+    grunt.registerTask('serve', function () {
         grunt.task.run([
             'nodemon'
+        ]);
+    });
+
+
+    grunt.registerTask('jshint', function () {
+        grunt.task.run([
+            'jshint:all'
+        ]);
+    });
+
+
+    grunt.registerTask('build', function () {
+        grunt.task.run([
+            'shell:clientBuild',
+            'copy:client'
+        ]);
+    });
+
+
+    grunt.registerTask('deploy', function () {
+        grunt.task.run([
+            //'jshint:all', //broken for some reason
+            'shell:clientBuild',
+            'copy:client',
+            'shell:deploy',
+            'clean'
         ]);
     });
 
