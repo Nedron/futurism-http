@@ -8,7 +8,6 @@
 
     var _ = require('lodash');
     var async = require('async');
-    var mongoose = require('mongoose');
     var Card = require('../shared/models/Card');
     var createHashId = require('../fns/createHashId');
 

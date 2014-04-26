@@ -37,7 +37,7 @@ module.exports = {
     post: function(req, res) {
         var guildId = req.session.guild;
         if(!guildId) {
-            return callback('no guildId in session');
+            return res.apiOut('no guildId in session');
         }
 
         return Lobby.create({
