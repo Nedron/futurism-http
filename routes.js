@@ -25,7 +25,7 @@ module.exports = function(expr) {
     expr.get('/api/decks', continueSession, checkLogin, require('./routes/decksGet'));
     expr.post('/api/decks', continueSession, checkLogin, require('./routes/decksPost'));
     
-    expr.put('/api/user/:userId/futures/:futureId', continueSession, loadMyStats('futures fractures'), futures.put);
+    expr.put('/api/user/:userId/futures/:futureId', continueSession, checkLogin, loadMyStats('futures fractures'), futures.put);
     expr.get('/api/user/:userId/futures', loadStats({}, 'futures fractures'), futures.getList());
 
     expr.get('/api/lobbies', continueSession, lobbies.getList);
