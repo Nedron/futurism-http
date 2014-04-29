@@ -4,10 +4,10 @@ var httpProxy = require('http-proxy');
 var proxy = httpProxy.createProxyServer({});
 var parseUrl = require('url').parse;
 
-module.exports = function(targetUri) {
+module.exports = function(targetUri, forceHost) {
 
     var parsed = parseUrl(targetUri);
-    var host = parsed.host;
+    var host = forceHost || parsed.host;
     var secure = parsed.protocol === 'https:';
 
     return function(req, res, next) {

@@ -1,6 +1,6 @@
 'use strict';
 
-var Stats = require('../models/stats');
+var Stats = require('../shared/models/Stats');
 var _ = require('lodash');
 
 module.exports = function(query, fields) {
