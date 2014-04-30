@@ -32,7 +32,7 @@ module.exports = {
     
     
     put: function(req, res) {
-        var future = req.params.future;
+        var future = req.params.futureId;
         var myStats = req.stats;
         var cost = futureCost(myStats, future);
         

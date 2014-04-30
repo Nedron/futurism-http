@@ -15,7 +15,13 @@ var defaultOptions = {
 
 var createLobby = function(options) {
     _.defaults(options, defaultOptions);
-    Lobby.findByIdAndUpdate(options._id, options, {upsert: true});
+    var _id = options._id;
+    delete options._id;
+    Lobby.findByIdAndUpdate(_id, options, {upsert: true}, function(err) {
+        if(err) {
+            console.log('createDefaultLobby err', err);
+        }
+    });
 };
 
 
