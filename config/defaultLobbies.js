@@ -8,7 +8,7 @@ var defaultOptions = {
     server: 1,
     open: true,
     date: new Date(),
-    minRank: 0,
+    minFame: 0,
     minElo: 0
 };
 
@@ -22,20 +22,27 @@ var createLobby = function(options) {
 var createDefaultLobbies = function() {
 
     createLobby({
-        _id: 'Brutus',
+        _id: 'Time Tourists',
         server: 1,
         open: true,
         date: new Date(),
-        minElo: 0
+        minFame: 0
     });
 
-
     createLobby({
-        _id: 'Masters',
+        _id: 'Time Travelers',
         server: 1,
         open: true,
         date: new Date(),
-        minElo: 0
+        minFame: 10
+    });
+
+    createLobby({
+        _id: 'Time Masters',
+        server: 1,
+        open: true,
+        date: new Date(),
+        minFame: 20
     });
 };
 
