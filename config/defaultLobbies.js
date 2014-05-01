@@ -28,7 +28,7 @@ var createLobby = function(options) {
 var createDefaultLobbies = function() {
 
     createLobby({
-        _id: 'Time Tourists',
+        _id: 'Travelers',
         server: 1,
         open: true,
         date: new Date(),
@@ -36,7 +36,7 @@ var createDefaultLobbies = function() {
     });
 
     createLobby({
-        _id: 'Time Travelers',
+        _id: 'Adventurers',
         server: 1,
         open: true,
         date: new Date(),
@@ -44,7 +44,7 @@ var createDefaultLobbies = function() {
     });
 
     createLobby({
-        _id: 'Time Masters',
+        _id: 'Masters',
         server: 1,
         open: true,
         date: new Date(),

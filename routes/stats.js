@@ -19,7 +19,7 @@ module.exports = {
 
     // get a user's stats document
     get: function(req, res) {
-        Stats.findById(req.params.userId, function(err, stats) {
+        Stats.findById(req.params.userId, '_id updated futures fractures fame elo', function(err, stats) {
             if(err) {
                 return res.apiOut(err);
             }
