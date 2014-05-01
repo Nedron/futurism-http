@@ -18,7 +18,7 @@ var futureCost = function(stats, future) {
     if(userOwnsFuture(stats, future)) {
         return 0;
     }
-    return stats.futures.length + 1;
+    return stats.futures.length;
 };
 
 
