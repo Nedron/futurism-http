@@ -6,6 +6,10 @@ var expr = express();
 var httpServer = require('http').createServer(expr);
 
 
+//--- settings
+expr.enable('trust proxy');
+
+
 //--- mongoose connect
 var mongoose = require('mongoose');
 require('./fns/mongoose/findByIdAndSave').attach(mongoose);
@@ -37,11 +41,12 @@ expr.use('/storage', require('./middleware/proxy')('https://s3.amazonaws.com/'+p
 
 expr.use('/api', require('./middleware/nocache'));
 expr.use('/api', require('./middleware/output'));
-
-/*expr.use('/api', express.urlencoded());
-expr.use('/api', express.json());*/
 expr.use('/api', express.bodyParser());
 expr.use('/api', require('./middleware/consolidateQuery'));
+
+// todo: work more to replace bodyParser with these
+/*expr.use('/api', express.urlencoded());
+expr.use('/api', express.json());*/
 
 
 //--- serve static files (more middleware, technically)
