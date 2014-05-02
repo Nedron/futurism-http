@@ -137,6 +137,17 @@ module.exports = function (grunt) {
             'clean'
         ]);
     });
+    
+    
+    grunt.registerTask('deployLive', function () {
+        grunt.task.run([
+            //'jshint:all', //broken for some reason
+            'shell:clientBuild',
+            'copy:client',
+            'shell:deployLive',
+            'clean'
+        ]);
+    });
 
 
 };
