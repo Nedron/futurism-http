@@ -29,20 +29,6 @@
             .exec(function(err, result) {
                 return res.apiOut(err, result);
             });
-        
-        /*var userId = req.params.userId || req.session._id;
-        var canon = req.body.canon || false;
-        var page = req.body.page || 1;
-        var count = 10;
-
-        var query = {userId: userId};
-        if(canon) {
-            query = {$or: [{userId: userId}, {canon: true}]};
-        }
-
-        paginate(Card, query, page, count, function(err, pageCount, results) {
-            return res.apiOut(err, {pageCount: pageCount, results: results, page: page});
-        }, {sortBy: {updated:-1}});*/
     };
 
 

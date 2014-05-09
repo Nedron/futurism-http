@@ -3,23 +3,17 @@
 module.exports = function(expr) {
 
     var lobbies = require('./routes/lobbies');
-    var cards = require('./routes/cards');
     var servers = require('./routes/servers');
     var stats = require('./routes/stats');
     var futures = require('./routes/futures');
 
     var continueSession = require('./middleware/continueSession');
     var checkLogin = require('./middleware/checkLogin');
-    var checkMod = require('./middleware/checkMod');
     var loadStats = require('./middleware/loadStats');
     var loadMyStats = require('./middleware/loadMyStats');
 
-    expr.put('/api/cards/:userId/:cardId/cannon', continueSession, checkMod, cards.putCanon);
-    expr.del('/api/cards/:userId/:cardId', continueSession, checkLogin, cards.del);
-    expr.get('/api/cards/:userId/:cardId', continueSession, checkLogin, cards.get);
-    expr.post('/api/cards/:userId/:cardId', continueSession, checkLogin, cards.edit);
-    expr.get('/api/cards/:userId', continueSession, checkLogin, cards.getList);
-    expr.post('/api/cards/:userId', continueSession, checkLogin, require('./routes/cardsPost'));
+    require('./routes/cards').init(expr);
+    require('./routes/cardsPost').init(expr);
 
     expr.delete('/api/decks', continueSession, checkLogin, require('./routes/decksDelete'));
     expr.get('/api/decks', continueSession, checkLogin, require('./routes/decksGet'));

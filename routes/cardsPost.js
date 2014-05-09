@@ -10,8 +10,10 @@
     var async = require('async');
     var Card = require('../shared/models/Card');
     var createHashId = require('../fns/createHashId');
+    var continueSession = require('../middleware/continueSession');
+    var checkLogin = require('../middleware/checkLogin');
 
-
+    
     /**
      * Save an image to s3
      * @param {buffer} image
@@ -27,60 +29,69 @@
         image.type = 'image/jpg';
         imager.upload([image], callback, 'cardImage');
     };
+    
+    
+    
+    var self = {
+        
+        init: function(app) {
+            app.post('/api/users/:userId/cards', continueSession, checkLogin, self.post);
+        },
+        
+        
+        /**
+         * Save a card
+         * image is stored on s3, if there is one
+         * @body {string} name
+         * @body {string} story
+         * @body {string} faction
+         * @body {string[]} abilities
+         * @body {number} attack
+         * @body {number} health
+         */
+        post: function(req, res) {
 
+            var data = _.pick(req.body, 'name', 'story', 'faction', 'abilities', 'attack', 'health');
 
-    /**
-     * Save a card
-     * image is stored on s3, if there is one
-     * @body {string} name
-     * @body {string} story
-     * @body {string} faction
-     * @body {string[]} abilities
-     * @body {number} attack
-     * @body {number} health
-     */
-    module.exports = function(req, res) {
+            data.userId = req.session._id;
+            data._id = createHashId(req.session._id + '-' + data.name, 16);
 
-        var data = _.pick(req.body, 'name', 'story', 'faction', 'abilities', 'attack', 'health');
-
-        data.userId = req.session._id;
-        data._id = createHashId(req.session._id + '-' + data.name, 16);
-
-        if(data.abilities) {
-            data.abilities = data.abilities.split(',');
-        }
-        else {
-            data.abilities = [];
-        }
-
-
-
-
-        //--- save card and image
-        async.series([
-
-            //--- save the image if there is one
-            function(callback) {
-                if(req.files && req.files.image) {
-                    data.hasImage = true;
-                    return saveImage(req.files.image, data._id, callback);
-                }
-                else {
-                    return callback();
-                }
-            },
-
-            //--- save the card
-            function(callback) {
-                Card.findByIdAndSave(data, callback);
+            if(data.abilities) {
+                data.abilities = data.abilities.split(',');
             }
-        ],
+            else {
+                data.abilities = [];
+            }
 
-        //--- all done
-        function(err, results) {
-            res.apiOut(err, results[1]);
-        });
+            //--- save card and image
+            async.series([
+
+                //--- save the image if there is one
+                function(callback) {
+                    if(req.files && req.files.image) {
+                        data.hasImage = true;
+                        return saveImage(req.files.image, data._id, callback);
+                    }
+                    else {
+                        return callback();
+                    }
+                },
+
+                //--- save the card
+                function(callback) {
+                    Card.findByIdAndSave(data, callback);
+                }
+            ],
+
+            //--- all done
+            function(err, results) {
+                res.apiOut(err, results[1]);
+            });
+        }
     };
+    
+    
+    module.exports = self;
 
 
 }());
