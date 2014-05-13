@@ -14,7 +14,6 @@
         
         
         init: function(app) {
-            app.put('/api/users/:userId/cards/:cardId/cannon', continueSession, checkMod, self.putCanon);
             app.del('/api/users/:userId/cards/:cardId', continueSession, checkLogin, self.del);
             app.get('/api/users/:userId/cards/:cardId', continueSession, checkLogin, self.get);
             app.post('/api/users/:userId/cards/:cardId', continueSession, checkLogin, self.edit);
@@ -68,7 +67,7 @@
                     });
             }
             else {
-                return res.apiOut('Action "'+action+'" not found');
+                return res.apiOut('Action "' + action + '" not found');
             }
         },
 
@@ -80,35 +79,18 @@
 
             var userId = req.params.userId || req.session._id;
             var query = {userId: userId};
-            
-            if(req.body.cannon) {
-                query = {$or: [{userId: userId}, {canon: true}]};
-            }
 
             var options = {
                 model: Card,
                 page: req.body.page,
                 count: 10,
                 find: query,
-                allowFindBy: false,
+                sort: {updated: -1},
+                allowFindBy: ['userId'],
                 allowSortBy: ['updated']
             };
 
             paginate(options, res.apiOut);
-        },
-
-
-        /**
-         * update if card is cannon or not
-         */
-        putCanon: function(req, res) {
-            var data = {
-                _id: req.body.cardId,
-                canon: req.body.canon
-            };
-            Card.findByIdAndSave(data, function(err, card) {
-                res.apiOut(err, card);
-            });
         },
 
 

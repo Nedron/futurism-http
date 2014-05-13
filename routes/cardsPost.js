@@ -51,7 +51,7 @@
          */
         post: function(req, res) {
 
-            var data = _.pick(req.body, 'name', 'story', 'faction', 'abilities', 'attack', 'health');
+            var data = _.pick(req.body, 'name', 'story', 'faction', 'abilities', 'attack', 'health', 'share');
 
             data.userId = req.session._id;
             data._id = createHashId(req.session._id + '-' + data.name, 16);
