@@ -8,7 +8,7 @@
     var self = {
         
         init: function(app) {
-            app.get('/api/user/:userId/favorite-decks', loadStats(), self.getList);
+            app.get('/api/user/:userId/favorite-cards', loadStats(), self.getList);
         },
         
         

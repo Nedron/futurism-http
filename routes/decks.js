@@ -51,7 +51,8 @@
         getList: function(req, res) {
             var options = {
                 model: Deck,
-                find: {userId: req.session._id}
+                find: {userId: req.session._id},
+                allowFindBy: ['userId']
             };
             
             paginate(options, res.apiOut);
@@ -63,16 +64,15 @@
          */
         get: function(req, res) {
             var deckId = req.params.deckId;
-            var userId = req.params.userId;
 
-            Deck.findOne({_id: deckId, userId: userId})
+            Deck.findById(deckId)
                 .populate('cards')
                 .exec(function(err, deck) {
                     if(err) {
                         return res.apiOut(err);
                     }
                     if(!deck) {
-                        return res.send(404, 'Card not found');
+                        return res.send(404, 'Deck not found');
                     }
                     if(!deck.share && String(deck.userId) !== String(req.session._id)) {
                         return res.apiOut('You are not the owner of this deck, and this deck is not shared');

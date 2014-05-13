@@ -14,8 +14,9 @@ module.exports = function(expr) {
 
     require('./routes/cards').init(expr);
     require('./routes/cardsPost').init(expr);
-    require('./routes/decks').init(expr)
-    require('./routes/favoriteCards').init(expr)
+    require('./routes/decks').init(expr);
+    require('./routes/favoriteCards').init(expr);
+    require('./routes/favoriteDecks').init(expr);
     
     expr.put('/api/users/:userId/futures/:futureId', continueSession, checkLogin, loadMyStats('futures fractures'), futures.put);
     expr.get('/api/users/:userId/futures', loadStats({}, 'futures fractures'), futures.getList);
