@@ -8,16 +8,34 @@
     var paginate = require('../fns/paginate');
     var continueSession = require('../middleware/continueSession');
     var checkLogin = require('../middleware/checkLogin');
-    var checkMod = require('../middleware/checkMod');
 
     var self = {
         
         
         init: function(app) {
+            app.get('/api/cards', self.getPublicList);
             app.del('/api/users/:userId/cards/:cardId', continueSession, checkLogin, self.del);
             app.get('/api/users/:userId/cards/:cardId', continueSession, checkLogin, self.get);
             app.post('/api/users/:userId/cards/:cardId', continueSession, checkLogin, self.edit);
             app.get('/api/users/:userId/cards', continueSession, checkLogin, self.getList);
+        },
+        
+        
+         /**
+         * Get a list of shared cards
+         */
+        getPublicList: function(req, res) {
+            var sort = req.body.sort || {hot: -1};
+            
+            var options = {
+                model: Card,
+                find: {share: true},
+                sort: sort,
+                allowFindBy: ['share'],
+                allowSortBy: ['hot']
+            };
+            
+            paginate(options, res.apiOut);
         },
 
 
