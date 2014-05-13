@@ -27,7 +27,19 @@
         
         
         put: function(req, res) {
-            arrayFns.add(req.stats, 'favCards', req.params.cardId, res.apiOut);
+            Card.findById(req.params.cardId, function(err, card) {
+                if(err) {
+                    return res.apiOut(err);
+                }
+                if(!card) {
+                    return res.apiOut('card not found');
+                }
+                if(!card.share) {
+                    return res.apiOut('card can not be favorited');
+                }
+                
+                arrayFns.add(req.stats, 'favCards', req.params.cardId, res.apiOut);
+            });
         },
         
         
