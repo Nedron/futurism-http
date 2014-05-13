@@ -27,7 +27,19 @@
         
         
         put: function(req, res) {
-            arrayFns.add(req.stats, 'favDecks', req.params.deckId, res.apiOut);
+            Deck.findById(req.params.deckId, function(err, deck) {
+                if(err) {
+                    return res.apiOut(err);
+                }
+                if(!deck) {
+                    return res.apiOut('deck not found');
+                }
+                if(!deck.share) {
+                    return res.apiOut('deck can not be favorited');
+                }
+                
+                arrayFns.add(req.stats, 'favDecks', req.params.deckId, res.apiOut);
+            });
         },
         
         
