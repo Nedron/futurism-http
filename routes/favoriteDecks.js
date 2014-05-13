@@ -3,8 +3,10 @@
     'use strict';
     
     var _ = require('lodash');
+    var async = require('async');
     var paginateArray = require('../fns/paginateArray');
     var loadStats = require('../middleware/loadStats');
+    var Deck = require('../shared/models/Deck');
     
     
     var self = {
@@ -17,7 +19,11 @@
         
         
         getList: function(req, res) {
-            res.apiOut(null, paginateArray(req.stats.favDecks, req.body));
+            var reply = paginateArray(req.stats.favDecks, req.body);
+            async.map(reply.results, Deck.findById.bind(Deck), function(err, decks) {
+                reply.results = decks;
+                res.apiOut(err, reply);
+            });
         },
         
         
