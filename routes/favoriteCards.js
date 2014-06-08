@@ -3,7 +3,7 @@
     'use strict';
     
     var async = require('async');
-    var loadStats = require('../middleware/loadStats');
+    var loadProgress = require('../middleware/loadProgress');
     var arrayFns = require('../fns/arrayFns');
     var Card = require('../shared/models/Card');
     
@@ -11,14 +11,14 @@
     var self = {
         
         init: function(app) {
-            app.put('/api/user/:userId/favorite-cards/:cardId', loadStats(), self.put);
-            app.get('/api/user/:userId/favorite-cards', loadStats(), self.getList);
-            app.del('/api/user/:userId/favorite-cards/:cardId', loadStats(), self.del);
+            app.put('/api/user/:userId/favorite-cards/:cardId', loadProgress(), self.put);
+            app.get('/api/user/:userId/favorite-cards', loadProgress(), self.getList);
+            app.del('/api/user/:userId/favorite-cards/:cardId', loadProgress(), self.del);
         },
         
         
         getList: function(req, res) {
-            var reply = arrayFns.paginate(req.stats.favCards, req.body);
+            var reply = arrayFns.paginate(req.progress.favCards, req.body);
             async.map(reply.results, Card.findById.bind(Card), function(err, cards) {
                 reply.results = cards;
                 res.apiOut(err, reply);
@@ -38,13 +38,13 @@
                     return res.apiOut('card can not be favorited');
                 }
                 
-                arrayFns.add(req.stats, 'favCards', req.params.cardId, res.apiOut);
+                arrayFns.add(req.progress, 'favCards', req.params.cardId, res.apiOut);
             });
         },
         
         
         del: function(req, res) {
-            arrayFns.remove(req.stats, 'favCards', req.params.cardId, res.apiOut);
+            arrayFns.remove(req.progress, 'favCards', req.params.cardId, res.apiOut);
         }
     };
     

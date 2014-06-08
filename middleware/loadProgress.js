@@ -1,6 +1,6 @@
 'use strict';
 
-var Stats = require('../shared/models/Stats');
+var Progress = require('../shared/models/Progress');
 var _ = require('lodash');
 
 module.exports = function (query, fields) {
@@ -12,18 +12,18 @@ module.exports = function (query, fields) {
         query._id = query._id || req.param('userId');
 
         if (_.size(query) === 0) {
-            return res.apiOut('loadStats: no query or userId found');
+            return res.apiOut('loadProgress: no query or userId found');
         }
 
-        Stats.findOne(query, fields, function (err, stats) {
+        Progress.findOne(query, fields, function (err, progress) {
             if (err) {
                 return res.apiOut(err);
             }
-            if (!stats) {
-                return res.send(404, 'Stats not found');
+            if (!progress) {
+                return res.send(404, 'Progress not found');
             }
 
-            req.stats = stats;
+            req.progress = progress;
             return next();
         });
     };

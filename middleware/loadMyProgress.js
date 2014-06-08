@@ -1,12 +1,12 @@
 'use strict';
 
-var loadStats = require('./loadStats');
+var loadProgress = require('./loadProgress');
 
 module.exports = function(fields) {
 	fields = fields || {};
 
 	return function(req, res, next) {
         var query = {_id: req.session._id};
-		loadStats(query, fields)(req, res, next);
+		loadProgress(query, fields)(req, res, next);
 	};
 };

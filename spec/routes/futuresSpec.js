@@ -11,19 +11,19 @@ describe('routes/futures', function() {
     describe('put', function() {
         
         
-        var stats, req, res;
+        var progress, req, res;
         
         beforeEach(function() {
 
-            stats = {
+            progress = {
                 futures: [],
                 fractures: 0,
             };
-            stats.save = sinon.stub().yields(null, stats);
+            progress.save = sinon.stub().yields(null, progress);
 
             req = {
                 params: [],
-                stats: stats
+                progress: progress
             };
 
             res = {
@@ -33,58 +33,58 @@ describe('routes/futures', function() {
         
         
         it('should add future to your account if you have enough fractures', function() {
-            stats.fractures = 1;
+            progress.fractures = 1;
             req.params = {futureId: futureDict.CAPITALISM};
             futures.put(req, res);
-            expect( stats.fractures ).toBe( 1 );
-            expect( stats.futures ).toEqual( [futureDict.CAPITALISM] );
+            expect( progress.fractures ).toBe( 1 );
+            expect( progress.futures ).toEqual( [futureDict.CAPITALISM] );
         });
 
 
         it('should subtract fractures from your account in ever increasing ammounts', function() {
-            stats.fractures = 99;
+            progress.fractures = 99;
     
             // first future costs 1
             req.params = {futureId: futureDict.CAPITALISM};
             futures.put(req, res);
-            expect( stats.fractures ).toBe( 99 );
+            expect( progress.fractures ).toBe( 99 );
             
             // second future costs 2
             req.params = {futureId: futureDict.RENAISSANCE};
             futures.put(req, res);
-            expect( stats.fractures ).toBe( 98 );
+            expect( progress.fractures ).toBe( 98 );
             
             // third future costs 3
             req.params = {futureId: futureDict.EDEN};
             futures.put(req, res);
-            expect( stats.fractures ).toBe( 96 );
+            expect( progress.fractures ).toBe( 96 );
         });
 
 
         it('should save changes to your account', function() {
-            stats.fractures = 1;
+            progress.fractures = 1;
             req.params = {futureId: futureDict.CAPITALISM};
             futures.put(req, res);
-            expect( res.apiOut.args[0] ).toEqual( [null, stats] );
+            expect( res.apiOut.args[0] ).toEqual( [null, progress] );
         });
 
 
         it('should reject request if you do not have enough fractures', function() {
             
-            stats.fractures = 0;
-            stats.futures = [futureDict.EDEN];
+            progress.fractures = 0;
+            progress.futures = [futureDict.EDEN];
             req.params = {futureId: futureDict.CAPITALISM};
             futures.put(req, res);
             expect( res.apiOut.args[0] ).toEqual( ['1 more fracture(s) are needed to unlock this future'] );
             
-            stats.fractures = 1;
-            stats.futures = [futureDict.EDEN, futureDict.ANARCHY, futureDict.NUCLEAR_WAR];
+            progress.fractures = 1;
+            progress.futures = [futureDict.EDEN, futureDict.ANARCHY, futureDict.NUCLEAR_WAR];
             req.params = {futureId: futureDict.CAPITALISM};
             futures.put(req, res);
             expect( res.apiOut.args[1] ).toEqual( ['2 more fracture(s) are needed to unlock this future'] );
             
-            stats.fractures = -5;
-            stats.futures = [];
+            progress.fractures = -5;
+            progress.futures = [];
             req.params = {futureId: futureDict.CAPITALISM};
             futures.put(req, res);
             expect( res.apiOut.args[2] ).toEqual( ['5 more fracture(s) are needed to unlock this future'] );
@@ -92,8 +92,8 @@ describe('routes/futures', function() {
 
 
         it('should reject request if you already own the selected future', function() {
-            stats.fractures = 999;
-            stats.futures = [futureDict.CAPITALISM];
+            progress.fractures = 999;
+            progress.futures = [futureDict.CAPITALISM];
             req.params = {futureId: futureDict.CAPITALISM};
             futures.put(req, res);
             expect( res.apiOut.args[0] ).toEqual( ['You already own this future'] );
@@ -101,7 +101,7 @@ describe('routes/futures', function() {
 
 
         it('should reject request if you specify an invalid future', function() {
-            stats.fractures = 999;
+            progress.fractures = 999;
             req.params = {futureId: 123};
             futures.put(req, res);
             expect( res.apiOut.args[0] ).toEqual( ['Invalid future'] );
@@ -117,12 +117,12 @@ describe('routes/futures', function() {
         
         it("should return an array of a user's futures", function() {
             
-            var stats = {
+            var progress = {
                 futures: [futureDict.EDEN],
             };
 
             var req = {
-                stats: stats
+                progress: progress
             };
 
             var res = {

@@ -4,21 +4,21 @@
     
     var async = require('async');
     var arrayFns = require('../fns/arrayFns');
-    var loadStats = require('../middleware/loadStats');
+    var loadProgress = require('../middleware/loadProgress');
     var Deck = require('../shared/models/Deck');
     
     
     var self = {
         
         init: function(app) {
-            app.get('/api/user/:userId/favorite-decks', loadStats(), self.getList);
-            app.put('/api/user/:userId/favorite-decks/:deckId', loadStats(), self.put);
-            app.del('/api/user/:userId/favorite-decks/:deckId', loadStats(), self.del);
+            app.get('/api/user/:userId/favorite-decks', loadProgress(), self.getList);
+            app.put('/api/user/:userId/favorite-decks/:deckId', loadProgress(), self.put);
+            app.del('/api/user/:userId/favorite-decks/:deckId', loadProgress(), self.del);
         },
         
         
         getList: function(req, res) {
-            var reply = arrayFns.paginate(req.stats.favDecks, req.body);
+            var reply = arrayFns.paginate(req.progress.favDecks, req.body);
             async.map(reply.results, Deck.findById.bind(Deck), function(err, decks) {
                 reply.results = decks;
                 res.apiOut(err, reply);
@@ -38,13 +38,13 @@
                     return res.apiOut('deck can not be favorited');
                 }
                 
-                arrayFns.add(req.stats, 'favDecks', req.params.deckId, res.apiOut);
+                arrayFns.add(req.progress, 'favDecks', req.params.deckId, res.apiOut);
             });
         },
         
         
         del: function(req, res) {
-            arrayFns.remove(req.stats, 'favDecks', req.params.deckId, res.apiOut);
+            arrayFns.remove(req.progress, 'favDecks', req.params.deckId, res.apiOut);
         }
     };
     

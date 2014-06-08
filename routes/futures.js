@@ -9,16 +9,16 @@ var isValidFuture = function(future) {
 };
 
 
-var userOwnsFuture = function(stats, future) {
-    return stats.futures.indexOf(future) !== -1;
+var userOwnsFuture = function(progress, future) {
+    return progress.futures.indexOf(future) !== -1;
 };
 
 
-var futureCost = function(stats, future) {
-    if(userOwnsFuture(stats, future)) {
+var futureCost = function(progress, future) {
+    if(userOwnsFuture(progress, future)) {
         return 0;
     }
-    return stats.futures.length;
+    return progress.futures.length;
 };
 
 
@@ -26,30 +26,29 @@ module.exports = {
     
     
     getList: function(req, res) {
-        var stats = req.stats;
-        return res.apiOut(null, stats.futures);
+        return res.apiOut(null, req.progress.futures);
     },
     
     
     put: function(req, res) {
         var future = req.params.futureId;
-        var myStats = req.stats;
-        var cost = futureCost(myStats, future);
+        var myProgress = req.progress;
+        var cost = futureCost(myProgress, future);
         
         if(!isValidFuture(future)) {
             return res.apiOut('Invalid future');
         }
-        if(userOwnsFuture(myStats, future)) {
+        if(userOwnsFuture(myProgress, future)) {
             return res.apiOut('You already own this future');
         }
-        if(cost > myStats.fractures) {
-            return res.apiOut(cost-myStats.fractures + ' more fracture(s) are needed to unlock this future');
+        if(cost > myProgress.fractures) {
+            return res.apiOut(cost-myProgress.fractures + ' more fracture(s) are needed to unlock this future');
         }
         
-        myStats.fractures -= cost;
-        myStats.futures.push(future);
+        myProgress.fractures -= cost;
+        myProgress.futures.push(future);
         
-        myStats.save(res.apiOut);
+        myProgress.save(res.apiOut);
     }
 
 };
