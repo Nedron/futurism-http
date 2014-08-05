@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "start": "grunt serve",
-    "test": "jasmine-node spec --autotest --color --watch *.js config fns middleware routes shared validators"
+    "test": "jasmine-node spec --autotest --color --captureExceptions --watch *.js config fns middleware routes shared validators"
   },
   "engines": {
     "node": "0.10.x"
