@@ -1,86 +1,76 @@
-/* global describe, it, expect, afterEach */
+/* global describe, it, expect */
 
 'use strict';
 
-var mongoose = require('mongoose');
-var mockgoose = require('mockgoose');
-mockgoose(mongoose);
-
+var sinon = require('sinon');
 var findByIdAndSave = require('../../../fns/mongoose/findByIdAndSave');
-
-
-var TestSchema = new mongoose.Schema({
-    _id: {
-        type: Number
-    },
-    value: {
-        type: Number
-    },
-    name: {
-        type: String
-    }
-});
-
-var Test = mongoose.model('FndSaveTest', TestSchema);
-
-
-afterEach(function() {
-    mockgoose.reset();
-});
 
 
 describe('findByIdAndSave', function() {
 
-    it('should return the updated/created document on success', function(done) {
-        findByIdAndSave(Test, {_id: 7, value: 99}, function(err, doc) {
+
+    it('should perform an insert if a document with the same _id does not already exist', function() {
+        
+        var model = sinon.stub().returns({
+            save: sinon.stub()
+                .yields(null, {saved: true})
+        });
+        
+        model.findById = sinon.stub()
+            .withArgs(8)
+            .yields(null, null);
+        
+        findByIdAndSave(model, {_id: 8}, function(err, doc) {
+            expect(model.findById.withArgs(8).calledOnce).toBe(true);
+            expect(model.calledOnce).toBe(true);
             expect(err).toBeFalsy();
-            expect(doc.toObject()).toEqual({__v: 0, _id: 7, value: 99});
-            done();
+            expect(doc).toEqual({saved: true});
         });
     });
 
 
-    it('should perform an insert if the document does not exist', function(done) {
-        findByIdAndSave(Test, {_id: 7, value: 99}, function() {
-            Test.findById(7, function(err, doc) {
-                expect(err).toBeFalsy();
-                expect(doc.toObject()).toEqual({__v: 0, _id: 7, value: 99});
-                done();
-            });
-        });
-    });
-
-
-    it('should perform an update if the document does exist', function() {
-        Test.create({_id: 3, value: 50, name: 'bob'}, function(err, doc) {
+    it('should perform an update if a document with the same _id does exist', function() {
+        
+        var model = {};
+        
+        var existingDoc = {
+            save: sinon.stub()
+                .yields(null, {saved: true})
+        };
+        
+        model.findById = sinon.stub()
+            .withArgs(3)
+            .yields(null, existingDoc);
+        
+        findByIdAndSave(model, {_id: 3}, function(err, doc) {
+            expect(model.findById.withArgs(3).calledOnce).toBe(true);
+            expect(existingDoc.save.calledOnce).toBe(true);
             expect(err).toBeFalsy();
-            expect(doc.value).toBe(50);
-            expect(doc.name).toBe('bob');
-
-            findByIdAndSave(Test, {_id: 3, value: 51}, function(err, doc) {
-                expect(err).toBeFalsy();
-                expect(doc.value).toBe(51);
-                expect(doc.name).toBe('bob');
-            });
+            expect(doc).toEqual({saved: true});
         });
     });
 
 
-    it('should return an error if the document fails to save', function(done) {
-        findByIdAndSave(Test, {_id: 3, value: ['not', 'a', 'number']}, function(err) {
-            expect(err).toBeTruthy();
-            done();
+    it('should yield an error if the document fails to save', function() {
+        
+        var model = {};
+        
+        var existingDoc = {
+            save: sinon.stub()
+                .yields('such an error', null)
+        };
+        
+        model.findById = sinon.stub()
+            .withArgs(3)
+            .yields(null, existingDoc);
+        
+        findByIdAndSave(model, {_id: 3}, function(err, doc) {
+            expect(model.findById.withArgs(3).calledOnce).toBe(true);
+            expect(existingDoc.save.calledOnce).toBe(true);
+            expect(err).toBe('such an error');
+            expect(doc).toBeFalsy();
         });
     });
-
-
-    it('should extend mongoose model for easy access', function(done) {
-        findByIdAndSave.attach(mongoose);
-        Test.findByIdAndSave({_id: 7, value: 99}, function(err, doc) {
-            expect(err).toBeFalsy();
-            expect(doc.toObject()).toEqual({__v: 0, _id: 7, value: 99});
-            done();
-        });
-    });
+    
 
 });

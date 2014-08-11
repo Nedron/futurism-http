@@ -1,4 +1,4 @@
-describe('records - get', function() {
+describe('summaries - get', function() {
 
     var mongoose = require('mongoose');
     var mockgoose = require('mockgoose');

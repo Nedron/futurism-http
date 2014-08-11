@@ -22,17 +22,19 @@ var findByIdAndSave = function(Model, data, callback) {
         return callback('findByIdAndSave: an id is required');
     }
 
-    //--- load the card
+    //--- load the data
     Model.findById(id, function(err, document) {
         if(err) {
             return callback(err);
         }
+        
+        //--- copy over new data
         document = document || new Model();
         document = _.extend(document, data);
         document.updated = Date.now();
         document._id = id;
 
-        //--- save the card
+        //--- save the data
         document.save(function(err, document) {
             if(err) {
                 return callback(err);

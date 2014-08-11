@@ -17,6 +17,7 @@ module.exports = function(expr) {
     require('./routes/decks').init(expr);
     require('./routes/favoriteCards').init(expr);
     require('./routes/favoriteDecks').init(expr);
+    require('./routes/records').init(expr);
     
     expr.put('/api/users/:userId/futures/:futureId', continueSession, checkLogin, loadMyProgress('futures fractures'), futures.put);
     expr.get('/api/users/:userId/futures', loadProgress({}, 'futures fractures'), futures.getList);
@@ -25,7 +26,6 @@ module.exports = function(expr) {
     expr.get('/api/lobbies/:lobbyId', continueSession, lobbies.get);
     expr.post('/api/lobbies', continueSession, lobbies.post);
 
-    expr.get('/api/records/:gameId', continueSession, require('./routes/recordsGet'));
     expr.get('/api/servers', servers.get);
 
     expr.post('/api/progress', continueSession, checkLogin, progress.post);

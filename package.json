@@ -30,7 +30,6 @@
     "sinon": "~1.9.1",
     "jshint-stylish": "~0.1.5",
     "grunt-nodemon": "~0.2.1",
-    "mockgoose": "~1.8.1",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-copy": "~0.5.0",
     "grunt-shell": "~0.7.0",
