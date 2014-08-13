@@ -13,7 +13,6 @@ module.exports = function(expr) {
     var loadMyProgress = require('./middleware/loadMyProgress');
 
     require('./routes/cards').init(expr);
-    require('./routes/cardsPost').init(expr);
     require('./routes/decks').init(expr);
     require('./routes/favoriteCards').init(expr);
     require('./routes/favoriteDecks').init(expr);
