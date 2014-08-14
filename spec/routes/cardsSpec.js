@@ -2,74 +2,57 @@ describe('cards', function() {
     
     'use strict';
     
+    var sinon = require('sinon');
     var groups = require('../../shared/groups');
     var factions = require('../../shared/factions');
-    var CardGoose = require('../../shared/models/Card');
+    var Card = require('../../shared/models/Card');
     var cards = require('../../routes/cards');
 
     
     describe('del', function() {
-
-
-        var userId1;
-
-        beforeEach(function(done) {
-            userId1 = mongoose.Types.ObjectId();
-            CardGoose.create({
-                _id: '35-asdfj',
-                userId: userId1,
-                abilities: [],
-                name: 'Gandoki',
-                attack: 1,
-                health: 1,
-                faction: factions.machine.id
-            },
-            function(err, card) {
-                if(err) {
-                    throw err;
+        
+        var request;
+        
+        
+        beforeEach(function() {   
+            
+            sinon.stub(Card, 'findOneAndRemove');
+            
+            request = {
+                session: {
+                    _id: 'uid1',
+                    group: groups.USER
+                },
+                params: {
+                    cardId: 'card1'
                 }
-                done();
-            });
+            };
         });
-
-
+        
+        
         afterEach(function() {
-            mockgoose.reset();
+            Card.findOneAndRemove.restore();
         });
 
 
         it('should delete a card if you own it', function(done) {
-            var request = {
-                session: {
-                    _id: userId1
-                },
-                user: {
-                    group: groups.USER
-                },
-                params: {
-                    cardId: '35-asdfj'
-                }
-            };
+            Card.findOneAndRemove
+                .withArgs(sinon.match({_id: 'card1', userId: 'uid1'}))
+                .yields(null, true);
+            
             cards.del(request, {apiOut: function(err, result) {
                 expect(err).toBe(null);
-                expect(result.name).toBe('Gandoki');
+                expect(result).toBe(true);
                 done();
             }});
         });
 
 
-        it('should not delete a card if you are not a mod and you do not own it', function(done) {
-            var request = {
-                session: {
-                    _id: mongoose.Types.ObjectId()
-                },
-                user: {
-                    group: groups.USER
-                },
-                params: {
-                    cardId: '35-asdfj'
-                }
-            };
+        it('should not delete a card if you do not own it', function(done) {
+            Card.findOneAndRemove
+                .withArgs(sinon.match({_id: 'card1', userId: 'uid1'}))
+                .yields(null, null);
+            
             cards.del(request, {apiOut: function(err, result) {
                 expect(err).toBe('card not found');
                 expect(result).toBeFalsy();
@@ -78,19 +61,16 @@ describe('cards', function() {
         });
 
 
-        it('mods can delete cards they do not own', function(done) {
-            var request = {
-                session: {
-                    _id: mongoose.Types.ObjectId(),
-                    group: groups.MOD
-                },
-                params: {
-                    cardId: '35-asdfj'
-                }
-            };
+        it('mods can delete any card', function(done) {
+            Card.findOneAndRemove
+                .withArgs(sinon.match({_id: 'card1'}))
+                .yields(null, true);
+                                       
+            request.session.group = groups.MOD;
+            
             cards.del(request, {apiOut: function(err, result) {
                 expect(err).toBe(null);
-                expect(result.name).toBe('Gandoki');
+                expect(result).toBe(true);
                 done();
             }});
         });
@@ -243,7 +223,7 @@ describe('cards', function() {
                 expect(result.story).toBe('[removed][removed]');
                 done();
             }});
-        })
+        });
 
 
         it('should not save invalid name', function(done) {
