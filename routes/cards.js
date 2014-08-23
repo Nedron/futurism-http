@@ -121,12 +121,9 @@
          */
         get: function(req, res) {
             var cardId = req.params.cardId;
-
-            Card.findOne({_id: cardId})
+            Card.findById(cardId)
                 .populate('User')
-                .exec(function(err, result) {
-                    return res.apiOut(err, result);
-                });
+                .exec(res.apiOut);
         },
 
 

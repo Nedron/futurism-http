@@ -83,105 +83,37 @@ describe('cards', function() {
     
     
     describe('get', function() {
-        var userId1 = mongoose.Types.ObjectId();
-        var userId2 = mongoose.Types.ObjectId();
-
-        beforeEach(function(done) {
-            CardGoose.create({
-                    _id: '1-blah',
-                    userId: userId1,
-                    abilities: [],
-                    name: 'LoadMe',
-                    attack: 1,
-                    health: 1,
-                    faction: factions.machine.id
-                },
-                function(err) {
-                    if(err) {
-                        return done(err);
-                    }
-
-                    CardGoose.create({
-                            _id: '2-canon',
-                            userId: userId2,
-                            abilities: [],
-                            name: 'CanonIAm',
-                            attack: 1,
-                            health: 1,
-                            faction: factions.machine.id,
-                            canon: true
-                        },
-                        function(err) {
-                            if(err) {
-                                return done(err);
-                            }
-                            done();
-                        });
-                });
+        
+        beforeEach(function() {
+            var mockCursor = {
+                populate: sinon.stub(),
+                exec: sinon.stub()
+            };
+            mockCursor.populate.returns(mockCursor);
+            mockCursor.exec.returns(mockCursor).yields('anError', 'aValue');
+            
+            sinon.stub(Card, 'findById').returns(mockCursor);
         });
-
-
+        
+        
         afterEach(function() {
-            mockgoose.reset();
+            Card.findById.restore(); 
         });
 
 
-        it('should load a card', function(done) {
+        it('should output whatever mongoose yields', function(done) {
             var request = {
-                session: {
-                    _id: userId1
-                },
                 params: {
-                    cardId: '1-blah'
+                    cardId: 1
                 }
             };
             cards.get(request, {apiOut: function(err, result) {
-                if(err) {
-                    return done(err);
-                }
-                expect(err).toBe(null);
-                expect(result.name).toBe('LoadMe');
+                expect(err).toBe('anError');
+                expect(result).toBe('aValue');
+                expect(Card.findById.withArgs(1).calledOnce).toBe(true);
                 done();
             }});
         });
-
-
-        // something with pagination idunno
-        /*it('should load a list of cards by owner', function(done) {
-            var request = {
-                session: {
-                    _id: userId1
-                },
-                params: {},
-                body: {}
-            };
-            cards.getList(request, {apiOut: function(err, result) {
-                if(err) {
-                    return done(err);
-                }
-                expect(result.length).toBe(1);
-                expect(result[0].name).toBe('LoadMe');
-            }});
-        });*/
-
-
-
-        // mockgoose does not support the $or operator
-        /*it('should load a list by owner mixed with a list by canon', function(done) {
-            var request = {
-                session: {
-                    _id: userId1
-                },
-                body: {
-                    canon: true
-                }
-            };
-            cards.get(request, {apiOut: function(err, result) {
-                expect(err).toBe(null);
-                expect(result.length).toBe(2);
-                done();
-            }});
-        });*/
     });
     
     
@@ -190,85 +122,7 @@ describe('cards', function() {
     
     describe('post', function() {
 
-        beforeEach(function() {
-            request = {
-                session: {
-                    _id: mongoose.Types.ObjectId()
-                },
-                body: {
-                    name: 'TestCard',
-                    abilities: 'tree,bees',
-                    attack: 1,
-                    health: 1,
-                    story: 'This is the best card ever.',
-                    faction: 'no'
-                }
-            };
-        });
-
-
-        it('should save a valid card', function(done) {
-            cards.post(request, {apiOut: function(error, result) {
-                expect(error).toBe(null);
-                expect(result._id).toBeTruthy();
-                done();
-            }});
-        });
-
-
-        it('xss attacks should be removed from the story', function(done) {
-            request.body.story = '<SCRIPT SRC="http://ha.ckers.org/xss.js"></SCRIPT>';
-            cards.post(request, {apiOut: function(error, result) {
-                expect(error).toBe(null);
-                expect(result.story).toBe('[removed][removed]');
-                done();
-            }});
-        });
-
-
-        it('should not save invalid name', function(done) {
-            request.body.name = 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW';
-            cards.post(request, {apiOut: function(error, result) {
-                expect(error.message).toBe('Validation failed');
-                done();
-            }});
-        });
-
-
-        it('should not save invalid abilities', function(done) {
-            request.body.abilities = JSON.stringify([{bla:true}]);
-            cards.post(request, {apiOut: function(error, result) {
-                expect(error.message).toBe('Validation failed');
-                done();
-            }});
-        });
-
-
-        it('should not save invalid attack', function(done) {
-            request.body.attack = 'this is a string';
-            cards.post(request, {apiOut: function(error, result) {
-                expect(error.message).toContain('NaN');
-                done();
-            }});
-        });
-
-
-         it('should not save invalid health', function(done) {
-            request.body.health = -1;
-            cards.post(request, {apiOut: function(error, result) {
-                expect(error.message).toBe('Validation failed');
-                done();
-            }});
-        });
-
-
-        it('should not save invalid story', function(done) {
-            request.body.story = 'a really long storyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy';
-            cards.post(request, {apiOut: function(error, result) {
-                expect(error.message).toBe('Validation failed');
-                done();
-            }});
-        });
+       
     });
 
 });
