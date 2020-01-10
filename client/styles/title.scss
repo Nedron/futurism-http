@@ -1,0 +1,66 @@
+#title-screen-center {
+    height: 300px;
+}
+
+#title-logo {
+    font-size: 100px;
+    @include transform(skew(-30deg,0deg));
+    width: 550px;
+    text-align: center;
+    margin: 10px auto;
+    font-weight: bold;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+#title-logo-2 {
+    font-size: 100px;
+    @include transform(skew(-30deg,0deg));
+    width: 550px;
+    text-align: center;
+    margin: 10px auto;
+    position: relative;
+    top: -120px;
+    left: 2px;
+    text-shadow: none;
+    z-index: -1;
+    color: white;
+    letter-spacing: 3px;
+}
+
+#title-buttons {
+    text-align: center;
+    margin: -105px auto 20px auto;
+}
+
+#title-buttons a {
+    text-decoration: none;
+    color: $dark-contrast;
+    position: relative;
+    cursor: pointer;
+    font-size: 16px;
+    color: lightgray;
+}
+
+#title-buttons a:hover {
+    color: darken($dark-contrast, 20);
+}
+
+#title-logout, #more-sites {
+    padding-top: 20px;
+    width: 170px;
+    margin: 0 auto;
+}
+
+.login-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.btn-big .site-logo {
+    margin: -5px 10px 0px 0px;
+}
+
+.small-site-logo {
+    margin: -3px 5px 0px 0px;
+}

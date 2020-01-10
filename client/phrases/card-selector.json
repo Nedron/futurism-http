@@ -1,0 +1,44 @@
+{
+    "cardSelector": {
+        
+        "edit": {
+            "en": "Edit",
+            "pi": "Change Crew",
+            "ne": "Bewerken",
+            "fr": "Modifier",
+            "hu": "Módosít",
+            "ru": "Редактировай"
+        },
+        
+        "newCard": {
+            "en": "New Card",
+            "pi": "New Ship",
+            "ne": "Nieuwe kaart",
+            "fr": "Nouvelle Carte",
+            "hu": "Új Kártya",
+            "ru": "Новый Карта"
+        },
+        
+        "delete": {
+            "en": "Delete",
+            "ne": "verwijder",
+            "pl": "usun",
+            "nb": "slett",
+            "fr": "Supprimer",
+            "pi": "burn message",
+            "hu": "törlés",
+            "ru": "Стирай"
+        },
+        
+        "report": {
+            "en": "Report",
+            "ne": "overtreding melden",
+            "pl": "zreportuj",
+            "nb": "rapporter",
+            "fr": "Signaler",
+            "pi": "tip off police",
+            "hu": "jelentés",
+            "ru": "Сообщи"
+        }
+    }
+}

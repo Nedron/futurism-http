@@ -1,0 +1,40 @@
+{
+    "deckSelector": {
+        
+        "edit": {
+            "en": "Edit",
+            "pi": "Change fleet",
+            "ne": "Bewerken",
+            "fr": "Modifier",
+            "hu": "Módosít"
+        },
+        
+        "addFavorite": {
+            "en": "+ Favorite",
+            "fr": "+ Favoris"
+        },
+        
+        "removeFavorite": {
+            "en": "- Favorite",
+            "fr": "- Favoris"
+        },
+        
+        "delete": {
+            "en": "Delete",
+            "ne": "Verwijder",
+            "pl": "Usun",
+            "nb": "Slett",
+            "fr": "Supprimer",
+            "pi": "Burn message",
+            "hu": "Törlés"
+        },
+        
+        "newDeck": {
+            "en": "New Deck",
+            "pi": "New fleet",
+            "ne": "Nieuwe Deck",
+            "fr": "Nouveau paquet",
+            "hu": "Új Kártyacsomag"
+        }
+    }
+}

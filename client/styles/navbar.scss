@@ -1,0 +1,47 @@
+.slide-down-animation {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    padding: 5px 5px 5px 20px;
+    max-height: 30px;
+}
+
+.slide-down-animation.ng-hide {
+    padding: 0px 5px 0px 20px;
+    max-height: 1px;
+ }
+
+// This makes the animation visible during the animations
+// Normally display would be none
+.slide-down-animation.ng-hide-add,
+.slide-down-animation.ng-hide-remove {
+    display: block !important;
+}
+
+
+.mute-button {
+    color: lightgray;
+    font-size: 24px;
+    padding: 12px 15px;
+    background-color: #111111;
+    height: 49px;
+}
+
+#main-navbar .mute-button {
+    float: right;
+    border-left: 1px solid black;
+}
+
+#no-navbar .mute-button {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+#main-navbar .message-holder {
+    clear: both;
+    background-color: #111111;
+}
+
+.navbar-nav.navbar-right:last-child {
+    margin-right: -20px;
+}

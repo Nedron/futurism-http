@@ -1,0 +1,34 @@
+$iconSpritePath: "../images/glyphicons-halflings.png";
+$iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
+
+//$light-blend: #13578A;
+$light-blend: #2a9fd6;
+$dark-blend: #234259;
+//$light-contrast: #FF403C;
+//$light-contrast: #ffb833;
+$light-contrast: #ffd071;
+$dark-contrast: #e6d6a6;
+$highlight: invert($light-blend);
+
+//$dark-contrast: #991715;
+//$highlight: #FEFF56;
+
+$dark-grey: #222222;
+$grey: grey;
+
+$ent: green;
+$machine: #1e5588;
+$elite: #7000d0;
+$zealot: #991715;
+
+$brand-primary:         $dark-blend;
+$brand-success:         $light-blend;
+$brand-warning:         $light-contrast;
+$brand-danger:          $light-contrast;
+$brand-info:            $light-blend;
+
+/*$navbar-inverse-link-active-color: $highlight;
+$navbar-inverse-brand-color: $highlight;*/
+
+//@import "../bower_components/bootstrap-sass/lib/bootstrap.scss";
+@import "mixins.scss";

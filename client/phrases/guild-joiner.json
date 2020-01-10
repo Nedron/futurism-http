@@ -1,0 +1,27 @@
+{
+    
+    "guildJoiner": {
+
+        "title": {
+            "en": "Join a Guild",
+            "ne": "Tot een Gilde toetreden",
+            "lt": "Stoti į Gildiją",
+            "pi": "Enlist",
+            "nb": "Bli med i lauget",
+            "fr": "Rejoindre une guilde",
+            "pl": "Dołacz do gildii",
+            "hu": "Csatlakozás Klánhoz"
+        },
+
+        "join": {
+            "en": "Join",
+            "ne": "Toetreden",
+            "lt": "Įstoti",
+            "pi": "Enlist",
+            "pl": "Dołącz",
+            "fr": "Rejoindre",
+            "nb": "Bli med",
+            "hu": "Csatlakozás"
+        }
+    }
+}

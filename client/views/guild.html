@@ -1,0 +1,78 @@
+<div class="col-sm-7">
+
+    <banner guild="guild"></banner>
+
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="member in guild.members">
+            <username user="member"></username> - <span class="subtle">{{member.gpWeek}} {{lang.guild.gpWeek}}</span>
+        </li>
+    </ul>
+
+</div>
+
+
+
+<div class="col-sm-5 side-panel">
+
+    <div class="panel-segment">
+        <h1>{{lang.guild.perks}}</h1>
+        <ul>
+            <li class="subtle">{{lang.guild.none}}</li>
+        </ul>
+    </div>
+
+    <div class="panel-segment">
+        <h1>{{lang.guild.stats}}</h1>
+        <ul>
+            <li>
+                {{lang.guildStats.leaders}}:
+                <span ng-repeat="owner in guild.owners">
+                    <username user="owner"></username>
+                </span>
+            </li>
+            <li>
+                {{lang.guildStats.mods}}:
+                <span ng-repeat="member in guild.members">
+                    <username ng-if="member.mod" user="member"></username>
+                </span>
+            </li>
+            <li>
+                {{lang.guildStats.members}}: <b>{{guild.members.length}}</b>
+            </li>
+            <li>
+                {{lang.guildStats.gpToday}}: <b>{{guild.gpDay}}</b>
+            </li>
+            <li>
+                {{lang.guildStats.founded}}: <b>{{guild.createdDate | date}}</b>
+            </li>
+        </ul>
+    </div>
+
+    <div class="panel-segment">
+        <button ng-if="me.user.guild === guild._id"
+                ng-click="leaveGuild()" 
+                class="btn btn-default">
+            {{lang.guild.leave}}
+        </button>
+        
+        <busy-button ng-if="!me.user.guild && guild.join === 'ask'" 
+                class="btn btn-primary" 
+                on-click="askToJoin(guild._id)"
+                label="{{lang.guild.ask}}">
+        </busy-button>
+        
+        <button ng-if="!me.user.guild && guild.join === 'open'" 
+                class="btn btn-primary" 
+                ng-click="join(guild._id)">
+            {{lang.guild.join}}
+        </button>
+        
+        <button ng-if="iAmOwner(guild)" 
+                class="btn btn-primary" 
+                ng-click="edit(guild._id)">
+            {{lang.guild.edit}}
+        </button>
+        
+    </div>
+
+</div>

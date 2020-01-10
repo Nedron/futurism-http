@@ -1,0 +1,27 @@
+.game-starters li {
+    margin: 0 10px 10px 0;
+    float: left;
+}
+
+.matchup h3 {
+    margin: 10px 0;
+}
+
+.matchup h1 {
+    margin: 10px 0;
+}
+
+.matchup-members {
+    margin: 10px 0;
+}
+
+select.lobby-select {
+    color: $light-blend;
+    margin: 0px 0px 10px 0px;
+    font-size: 32px;
+    width: 100%;
+}
+
+select.lobby-select option {
+    color: #4e4e4e;
+}

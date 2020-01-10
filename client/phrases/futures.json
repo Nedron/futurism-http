@@ -1,0 +1,312 @@
+{
+
+    "futures": {
+
+        "capt": {
+            "name": {
+                "en": "Capitalism",
+                "pi": "Alchoholism",
+                "ne": "Kapitalisme",
+                "fr": "Capitalisme"
+            },
+            "desc": {
+                "en": "Elites siphon health when they attack.",
+                "pi": "Swashbucklers siphon rum from ships when they attack.",
+                "ne": "Als Elites aanvallen, stelen ze levens.",
+                "fr": "Les élites siphonnent des points de santé lors d'une attaque"
+            }
+        },
+
+        "norm": {
+            "name": {
+                "en": "Normal",
+                "pi": "Sunny seas",
+                "ne": "Normaal",
+                "fr": "Normal"
+            },
+            "desc": {
+                "en": "A perfectly normal future.",
+                "pi": "Nothing of interest happens. A parrot sneezes.",
+                "ne": "Een volkomen normale toekomst.",
+                "fr": "Un futur tout-à-fait normal"
+            }
+        },
+
+        "ares": {
+            "name": {
+                "en": "Ares Rising",
+                "pi": "Mars is bright",
+                "ne": "Mars komt op",
+                "fr": "Montée d'Ares"
+            },
+            "desc": {
+                "en": "Zealots get +1 attack after killing an enemy.",
+                "pi": "Priests gain 1 cannon after destroying an enemy ship.",
+                "ne": "Zeloten krijgen +1 aanval na het doden van een vijand.",
+                "fr": "Les fanatiques gagnent 1 point d'attaque après avoir tué un ennemi"
+            }
+        },
+
+        "eden": {
+            "name": {
+                "en": "Eden",
+                "pi": "Jone's Locker",
+                "ne": "Eden",
+                "fr": "Eden"
+            },
+            "desc": {
+                "en": "Trees gain 1 health every turn.",
+                "pi": "Krakens gain 1 rum per turn.",
+                "ne": "Bomen krijgen elke beurt 1 leven erbij.",
+                "fr": "Les arbres gagnent 1 point de santé par tour"
+            }
+        },
+
+        "assm": {
+            "name": {
+                "en": "Assimilation",
+                "pi": "Assimilation",
+                "ne": "Assimilatie",
+                "fr": "Assimilation"
+            },
+            "desc": {
+                "en": "All cards become machines.",
+                "pi": "All ships become inventors.",
+                "ne": "Alle kaarten worden machines.",
+                "fr": "Toutes les cartes deviennent des machines"
+            }
+        },
+
+        "nuke": {
+            "name": {
+                "en": "Nuclear War",
+                "pi": "Grapeshot",
+                "ne": "Kernoorlog",
+                "fr": "Guerre nucléaire"
+            },
+            "desc": {
+                "en": "All cards receive 1 damage after an attack.",
+                "pi": "All ships lose 1 extra rum after attacks",
+                "ne": "Telkens als iemand aanvalt verliezen alle kaarten 1 leven.",
+                "fr": "Totues les cartes reçoivent 1 dommage après une attaque"
+            }
+        },
+
+        "free": {
+            "name": {
+                "en": "Free Love",
+                "ne": "Gratis Liefde",
+                "lt": "Romantika",
+                "hu": "Ingyen Szeretet",
+                "nb": "Fri kjærlighet",
+                "pi": "Party",
+                "it": "Amore gratis",
+                "fr": "Amour inconditionnel",
+                "pl": "Panaceum"
+            },
+            "desc": {
+                "en": "Cards that rest gain 1 health.",
+                "ne": "Kaarten die niets doen krijgen 1 leven.",
+                "lt": "Nepuolanti korta, gauna 1 papildomą gyvybės tašką.",
+                "hu": "A nem támadó kártyák elnyernek 1 élet pontot.",
+                "nb": "Kort som ikke angriper får ett helsepoeng.",
+                "pi": "Ships that don't fight drink 1 rum.",
+                "it": "Le carte che non attaccano guadagnano 1 punto vita.",
+                "fr": "Les cartes au repos gagnent 1 point de santé",
+                "pl": "Karty, które nie atakują zyskują 1 punkt życia."
+            }
+        },
+
+        "blod": {
+            "name": {
+                "en": "Blood Feud",
+                "ne": "Bloedvete",
+                "lt": "Kraujo praliejimas",
+                "hu": "Vérbosszú",
+                "nb": "Blodfeide",
+                "pi": "Rage",
+                "it": "Fiotto di sangue",
+                "fr": "Rage de sang",
+                "pl": "Żądza krwi"
+            },
+            "desc": {
+                "en": "All cards must attack.",
+                "ne": "Alle kaarten moeten aanvallen.",
+                "lt": "Visos kortos privalo pulti.",
+                "hu": "Az összes kártyának muszáj támadnia!",
+                "nb": "Alle kort må angripe.",
+                "pi": "All ships must attack.",
+                "it": "Tutte le carte devono attaccare.",
+                "fr": "Toutes les cartes doivent attaquer",
+                "pl": "Wszystkie karty muszą atakować."
+            }
+        },
+
+        "rena": {
+            "name": {
+                "en": "Renaissance",
+                "ne": "Renaissance",
+                "lt": "Renesansas",
+                "hu": "Reneszánsz",
+                "nb": "Rennesanse",
+                "pi": "Golden era",
+                "it": "Rinascimento",
+                "fr": "Renaissance",
+                "pl": "Renesans"
+            },
+            "desc": {
+                "en": "Player cards can perform two actions per turn.",
+                "pi": "Player ships can act twice per turn.",
+                "ne": "Aanvoerders kunnen twee acties per beurt uitvoeren.",
+                "fr": "Les cartes maîtres peuvent utiliser deux actions par tour",
+                "hu": "A játékosok elnyernek 2 extra büszkeségpontot menetenként."
+            }
+        },
+
+        "comm": {
+            "name": {
+                "en": "Communism",
+                "ne": "Communisme",
+                "lt": "Komunizmas",
+                "hu": "Kommunizmus",
+                "nb": "Kommunisme",
+                "pi": "Commies",
+                "it": "Comunismo",
+                "fr": "Communisme",
+                "pl": "Komunizm"
+            },
+            "desc": {
+                "en": "Every action has a 50% chance to fail.",
+                "ne": "Elke actie heeft 50% kans om te falen.",
+                "lt": "Kiekvienam veiksmui yra 50% galimybė susimauti.",
+                "hu": "Az összes akció 50% eséllyel megbukik.",
+                "nb": "Hver handling har en 50% sjangse for å mislykkes.",
+                "pi": "All plots be as likely to succeed as heads on a coin.",
+                "it": "Ogni azione ha una probabilità del 50% di fallire.",
+                "fr": "Chaque action a 50% des chances d'échouer",
+                "pl": "Każda akcja ma 50% szansy na niepowodzenie."
+            }
+        },
+
+        "thdr": {
+            "name": {
+                "en": "Thunderdome",
+                "ne": "Koepel",
+                "lt": "Cenzas",
+                "hu": "Thunderdome",
+                "nb": "Tordenskuppel",
+                "pi": "Thunderstorm",
+                "it": "Fulmini",
+                "fr": "Thunderdome",
+                "pl": "Cenzura"
+            },
+            "desc": {
+                "en": "No new cards can be played.",
+                "ne": "Er kunnen geen nieuwe kaarten meer worden gespeeld.",
+                "lt": "Kovos lauke nebegalima padėti naujų kortų.",
+                "hu": "Új kártyák nem játszhatnak!",
+                "nb": "Ingen nye kort kan spilles.",
+                "pi": "No new cards can enter the battlefield.",
+                "it": "Non possono essere giocate nuove carte.",
+                "fr": "Aucune nouvelle carte ne peut être jouée",
+                "pl": "Nie można wprowadzić nowych kart na pole gry."
+            }
+        },
+
+        "anar": {
+            "name": {
+                "en": "Anarchy",
+                "ne": "Anarchie",
+                "lt": "Anachija",
+                "hu": "Anarchia",
+                "nb": "Anarki",
+                "pi": "Anchorarchy",
+                "fr": "Anarchie",
+                "pl": "Anarchia"
+            },
+            "desc": {
+                "en": "All cards gain the move ability.",
+                "ne": "Alle kaarten kunnen zich verplaatsen.",
+                "lt": "Visos kortos įgauna judėjimo sugebėjimą.",
+                "hu": "Az összes kártya elnyeri a mozgás képességet.",
+                "nb": "Alle kort får flytteegenskapen.",
+                "pi": "All ships take up thar anchors and can sail about.",
+                "fr": "Toutes les cartes peuvent se déplacer",
+                "pl": "Każda karta może się poruszać."
+            }
+        },
+
+        "mira": {
+            "name": {
+                "en": "Miracle",
+                "ne": "Wonder",
+                "lt": "Stebuklas",
+                "hu": "Csoda",
+                "nb": "Mirakel",
+                "pi": "Davy Jone's favor",
+                "it": "Miracolo",
+                "fr": "Miracle",
+                "pl": "Cud"
+            },
+            "desc": {
+                "en": "Cards stay alive until their health reaches -10.",
+                "ne": "Kaarten blijven in leven tot ze -10 levens hebben.",
+                "lt": "Visos kortos išlieka gyvos iki kol jų gyvybių taškai pasiekia -10.",
+                "hu": "A kártyák életben maradnak ameddig az életük -10 alá nem esik.",
+                "nb": "Kort forblir i live til helsepoengene deres når -10.",
+                "pi": "Ships don't sink until they have -10 rum.",
+                "it": "Le carte possono stare in vita fino a quando la loro salute raggiunge -10.",
+                "fr": "Les cartes restent en vie jusqu'à ce que leur santé tombe à -10",
+                "pl": "Karty nie umierają, póki ich punkty życia nie osiągną -10."
+            }
+        },
+
+        "zvir": {
+            "name": {
+                "en": "Z Virus",
+                "ne": "Z Virus",
+                "lt": "Z Virusas",
+                "hu": "Z Virus",
+                "nb": "Z-virus",
+                "pi": "Davy Jones's Curse",
+                "fr": "Virus Z",
+                "pl": "Wirus Z"
+            },
+            "desc": {
+                "en": "Cards that would die become zombies instead.",
+                "ne": "Kaarten die dood zouden gaan, worden zombies.",
+                "lt": "Mirties atvėju, korta tampa zombiu.",
+                "hu": "A halálra ítélt kártyák nem halnak meg, zombivá alakulnak.",
+                "nb": "Kort som ville dødd blir til zombier i stedet.",
+                "pi": "All ships that sink becomes servants of Davy Jones.",
+                "fr": "Les cartes mortes devienent des zombies",
+                "pl": "Karty, które umierają stają sie kartami zombie."
+            }
+        },
+
+        "arma": {
+            "name": {
+                "en": "Armageddon",
+                "ne": "Einde der tijden",
+                "lt": "Armagėdonas",
+                "hu": "Armageddon",
+                "nb": "Armageddon",
+                "pi": "Armageddon",
+                "it": "Armageddon",
+                "fr": "Armageddon",
+                "pl": "Armageddon"
+            },
+            "desc": {
+                "en": "All cards lose 1 health per turn.",
+                "ne": "Alle kaarten verliezen 1 leven elke beurt.",
+                "lt": "Visos kortos, kiekvieną ėjimą praranda po 1 gyvybės tašką.",
+                "hu": "Az összes kártya elveszíti 1 életét menetenként.",
+                "nb": "Alle kort mister 1 helsepoeng i runden.",
+                "pi": "All ships are on fire and lose 1 rum each turn.",
+                "it": "Tutte le carte perdono 1 punto vita per turno.",
+                "fr": "Toutes les cartes perdent 1 point de santé par tour",
+                "pl": "Każda karta traci co turę 1 punkt życia"
+            }
+        }
+    }
+}

@@ -1,0 +1,75 @@
+{
+    
+    "loadup": {
+        
+        "maxDeckSize": {
+            "en": "Max Size",
+            "pl": "Max. Wielkość Dumy",
+            "pi": "Max Size",
+            "ne": "Max Grootte",
+            "fr": "Taille maximale",
+            "hu": "Max Méret",
+            "sv": "Maxstorlek"
+        },
+        
+        "selectDeck": {
+            "en": "Select a Deck!",
+            "pi": "Choose your fleet!",
+            "ne": "Kies je Deck!",
+            "fr": "Choisir un paquet",
+            "hu": "Válassz egy Kártyacsomagot!",
+            "sv": "Välj en Deck!"
+        },
+        
+        "select": {
+            "en": "Select",
+            "pi": "Select",
+            "ne": "Selecteren",
+            "fr": "Choisir",
+            "hu": "Választ",
+            "sv": "Välj"
+            
+        },
+        
+        "futures": {
+            "en": "Futures!",
+            "pi": "Tomorrows!",
+            "ne": "Toekomsten!",
+            "fr": "Futurs",
+            "hu": "Jövendők!",
+            "sv": "Framtid"
+        },
+        
+        "selectFutureSingular": {
+            "en": "Select a Future!",
+            "pi": "Select the day after tomorrow!",
+            "ne": "Selecteer een Toekomst!",
+            "fr": "Choisir un futur",
+            "hu": "Válassz egy Jövendőt!"
+        },
+        
+        "myDecks": {
+            "en": "My Decks",
+            "fr": "Mes paquets",
+            "sv": "Mina Decks"
+        },
+        
+        "favoriteDecks": {
+            "en": "Favorite Decks",
+            "fr": "Paquets favoris",
+            "sv": "Favorit Decks"
+        },
+        
+        "hotDecks": {
+            "en": "Popular Decks",
+            "fr": "Paquets polulaires",
+            "sv": "Populära Deckar"
+        },
+        
+        "none": {
+            "en": "None",
+            "fr": "Aucun",
+            "sv": "Ingen"
+        }
+    }
+}

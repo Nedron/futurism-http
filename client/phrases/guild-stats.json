@@ -1,0 +1,55 @@
+{
+    "guildStats": {
+        
+        "leaders": {
+            "en": "Leaders",
+            "ne": "Leiders",
+            "lt": "Vadovai",
+            "pi": "Cap'ns",
+            "pl": "Dowódcy",
+            "fr": "Chefs",
+            "nb": "Ledere",
+            "hu": "Vezetők"
+        },
+        
+        "mods": {
+            "en": "Mods",
+            "ne": "Mods",
+            "fr": "Mods",
+            "pi": "First mates"
+        },
+
+        "members": {
+            "en": "Members",
+            "ne": "Leden",
+            "lt": "Nariai",
+            "pi": "Sailors",
+            "pl": "Członkowie",
+            "fr": "Membres",
+            "nb": "Medlemmer",
+            "hu": "Tagok"
+        },
+
+        "gpToday": {
+            "en": "GP Today",
+            "ne": "GP Vandaag",
+            "lt": "Šiandienos GP",
+            "pi": "Gold today",
+            "pl": "GP dziś",
+            "fr": "PG aujourd'hui",
+            "nb": "GP i dag",
+            "hu": "GP Ma"
+        },
+
+        "founded": {
+            "en": "Founded",
+            "ne": "Gesticht",
+            "lt": "Įkurta",
+            "pi": "Founded",
+            "pl": "Założona",
+            "fr": "Fondée",
+            "nb": "Grunnlagt",
+            "hu": "Alapított"
+        }
+    }
+}

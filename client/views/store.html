@@ -1,0 +1,28 @@
+<div id="store" class="inverse">
+    
+    <div class="t-machine clearfix">
+        <img src="/images/t-machine.png"/>
+        <ul>
+            <li>
+                {{lang.store.compliment}}
+            </li>
+            <li>
+                {{lang.store.fractureNeedA}} <b>{{me.progress.futures.length}}</b> {{lang.store.fractureNeedB}} 
+            </li>
+            <li>
+                {{lang.store.fractureHaveA}} <b>{{me.progress.fractures}}</b> {{lang.store.fractureHaveB}}
+            </li>
+        </ul>
+    </div>
+    
+    <h1>{{lang.store.futures}}</h1>
+    <ul class="future-list clearfix">
+        <li ng-repeat="future in futures" ng-class="{inactive: !iHaveFuture(future)}">
+            <future-display ng-click="buyFuture(future)" future="{{future}}"></future-display>
+        </li>
+    </ul>
+    
+    <h1>{{lang.store.conversions}}</h1>
+    <h1>{{lang.store.fantasims}}</h1>
+
+</div>

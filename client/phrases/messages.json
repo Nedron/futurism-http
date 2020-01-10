@@ -1,0 +1,26 @@
+{
+    "messages": {
+        
+        "delete": {
+            "en": "Delete",
+            "ne": "verwijder",
+            "pl": "usun",
+            "nb": "slett",
+            "fr": "Supprimer",
+            "pi": "burn message",
+            "hu": "törlés",
+            "sv": "Ta bort"
+        },
+        
+        "report": {
+            "en": "Report",
+            "ne": "overtreding melden",
+            "pl": "zreportuj",
+            "nb": "rapporter",
+            "fr": "Signaler",
+            "pi": "tip off police",
+            "hu": "jelentés",
+            "sv": "Rapportera"
+        }
+    }
+}

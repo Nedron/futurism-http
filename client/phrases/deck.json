@@ -1,0 +1,12 @@
+{
+    "deck": {
+        "cards": {
+            "en": "cards",
+            "pl": "karty",
+            "pi": "ships",
+            "ne": "kaarten",
+            "fr": "Cartes",
+            "hu": "kártyák"
+        }
+    }
+}

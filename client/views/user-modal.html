@@ -1,0 +1,41 @@
+<div class="modal-header inverse">
+    <username user="user" size="large" link="false"></username>
+</div>
+<div class="modal-body">
+    <ul>
+        <li>Guild: 
+            <b>
+                <span ng-if="user.guild">
+                    <a ng-click="openGuild(user.guild)">{{user.guild}}</a>
+                </span>
+                <span ng-if="!user.guild" class="subtle">
+                    none
+                </span>
+            </b>
+        </li>
+        <li>Fame: <b>{{rankCalc.expToRank(progress.fame) | number:0}}</b></li>
+        <li>Futures: <b>{{progress.futures.length | number:0}}</b></li>
+        <li>Group: <b>{{lang.groups[user.group]}}</b></li>
+        <li>Player Since: <b>{{user.registerDate | date:'mediumDate'}}</b></li>
+        <li>Last Login: <b>{{user.loginDate | date:'mediumDate'}}</b></li>
+    </ul>
+</div>
+<div class="modal-footer">
+    <button ng-if="user.bans" class="btn" ng-click="viewBans()">{{lang.userModal.viewBans}}</button>
+    <button ng-if="user.actions.invite" class="btn" ng-click="invite()">{{lang.userModal.invite}}</button>
+    <button ng-if="user.actions.deInvite" class="btn" ng-click="deInvite()">{{lang.userModal.deInvite}}</button>
+    <button ng-if="user.actions.report" class="btn" ng-click="report()">{{lang.userModal.report}}</button>
+    <button ng-if="user.actions.mod" class="btn" ng-click="mod()">{{lang.userModal.mod}}</button>
+    <button ng-if="user.actions.deMod" class="btn" ng-click="deMod()">{{lang.userModal.deMod}}</button>
+    <button ng-if="user.actions.apprentice" class="btn" ng-click="apprentice()">{{lang.userModal.apprentice}}</button>
+    <button ng-if="user.actions.deApprentice" class="btn" ng-click="deApprentice()">{{lang.userModal.deApprentice}}</button>
+    <button ng-if="user.actions.ban" class="btn" ng-click="ban()">{{lang.userModal.ban}}</button>
+    <button ng-if="user.actions.deBan" class="btn" ng-click="deBan()">{{lang.userModal.deBan}}</button>
+    <button ng-if="user.actions.guildMod" class="btn" ng-click="guildMod()">{{lang.userModal.guildMod}}</button>
+    <button ng-if="user.actions.deGuildMod" class="btn" ng-click="deGuildMod()">{{lang.userModal.deGuildMod}}</button>
+    <button ng-if="user.actions.kick" class="btn" ng-click="kick()">{{lang.userModal.kick}}</button>
+    <button ng-if="user.actions.deKick" class="btn" ng-click="deKick()">{{lang.userModal.deKick}}</button>
+    <button ng-if="user.actions.message" class="btn" ng-click="message()">{{lang.userModal.message}}</button>
+    <button class="btn" ng-click="cards()">{{lang.userModal.cards}}</button>
+    <button class="btn btn-primary" ng-click="$dismiss('close')">{{lang.userModal.close}}</button>
+</div>

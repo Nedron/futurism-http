@@ -1,0 +1,74 @@
+{
+    "game": {
+        
+        "endTurn": {
+            "en": "End Turn",
+            "ct": "meow",
+            "ne": "Eindig Beurt",
+            "lt": "Užbaigti ėjimą",
+            "hu": "Menet Befejezése",
+            "nb": "Avslutt turen",
+            "pi": "Hit the bunk",
+            "it": "Termina turno",
+            "fr": "Fin du tour",
+            "pl": "Zakończ turę",
+            "sv": "Avsluta rundan"
+        },
+
+        "pride": {
+            "en": "Pride",
+            "ct": "meow",
+            "ne": "Trots",
+            "lt": "Vertė",
+            "hu": "Büszkeség",
+            "nb": "Stolthet",
+            "pi": "Pride",
+            "it": "Valore",
+            "fr": "Valeur",
+            "pl": "Duma",
+            "sv": "Pride"
+        },
+
+        "close": {
+            "en": "close",
+            "ct": "meow",
+            "ne": "sluiten",
+            "lt": "Uždaryti",
+            "hu": "bezár",
+            "nb": "lukk",
+            "pi": "Seal",
+            "it": "chiudi",
+            "fr": "Fermer",
+            "pl": "Zamknij",
+            "sv": "sluta"
+        },
+
+        "futures": {
+            "en": "Futures",
+            "ct": "meow",
+            "ne": "Toekomsten",
+            "lt": "Futuristikos taškai",
+            "hu": "Jövendők",
+            "nb": "Fremtider",
+            "pi": "Days after tomorrow",
+            "it": "Futures",
+            "fr": "Futurs",
+            "pl": "Przyszłości",
+            "sv": "Framtid"
+        },
+
+        "forfeit": {
+            "en": "Leave Game",
+            "ct": "meow",
+            "ne": "Opgeven",
+            "lt": "Pasitraukti",
+            "hu": "Kilépés",
+            "nb": "Forlat kampen",
+            "pi": "Abandon ship",
+            "it": "Abbandona",
+            "fr": "Abandonner",
+            "pl": "Zrezygnuj",
+            "sv": "Abdonnera"
+        }
+    }
+}

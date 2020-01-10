@@ -1,0 +1,73 @@
+{
+    "guildJoinPolicy": {
+        
+        "open": {
+            "name": {
+                "en": "Open",
+                "ne": "Open",
+                "lt": "Atvira",
+                "pi": "Open doors",
+                "pl": "Otwarta",
+                "fr": "Libre",
+                "nb": "Åpent",
+                "hu": "Megnyitás"
+            },
+            "desc": {
+                "en": "Anyone can join this guild.",
+                "ne": "Iedereen kan in het gilde komen.",
+                "lt": "Į šią Gildiją gali įstoti visi.",
+                "pi": "Any pirate may join this crew.",
+                "pl": "Każdy może dołączyć do tej gildii.",
+                "fr": "N'importe qui peut rejoindre la guilde",
+                "nb": "Alle kan bli med i dette lauget.",
+                "hu": "Bárki csatlakozhat ehhez a klánhoz."
+            }
+        },
+
+        "invite": {
+            "name": {
+                "en": "Invite",
+                "ne": "Uitnodigen",
+                "lt": "Tik su pakvietimu",
+                "pi": "Private",
+                "pl": "Prywatna",
+                "fr": "Invitation",
+                "nb": "Privat",
+                "hu": "Meghívás"
+            },
+            "desc": {
+                "en": "Only invited players can join this guild.",
+                "ne": "Alleen uitgenodigde spelers kunnen in het gilde komen.",
+                "lt": "Tik pakviesti žaidėjai gali įstoti į šią Gildiją",
+                "pi": "Pirates must have a letter to join this guild.",
+                "pl": "Tylko zaproszeni gracze mogą dołączyć do tej gildii.",
+                "fr": "Seuls les joueurs invités peuvent rejoindre la guilde",
+                "nb": "Bare inviterte spillere kan bli med i dette lauget.",
+                "hu": "Csak meghívott játékosok csatlakozhatnak ehhez a klánhoz."
+            }
+        },
+
+        "ask": {
+            "name": {
+                "en": "Ask",
+                "ne": "Op aanvraag",
+                "lt": "Tik su užklausa",
+                "pi": "Inquiry only",
+                "pl": "Moderatowana",
+                "fr": "Demande",
+                "nb": "Spør",
+                "hu": "Kérelem"
+            },
+            "desc": {
+                "en": "Players must ask or be invited to join this guild.",
+                "ne": "Spelers moeten gevraagd hebben of uitgenodigd zijn om bij het gilde te komen.",
+                "lt": "Žaidėjai turi atsiusti užklausą arba būti pakviesti kad galėtu įstoti į šią Gildiją",
+                "pi": "Pirates must either have their request approved or have a letter to join this guild.",
+                "pl": "Aby dołączyć, musisz sie zapytać lub zostać zaproszonym.",
+                "fr": "Les joueurs doivent demander ou êtres invités pour rejoindre la guilde",
+                "nb": "Spillere må spørre eller være invitert for å bli med i dette lauget.",
+                "hu": "A játékosoknak kérniük kell vagy meghívottnak kell lenniük hogy csatlakozhassanak."
+            }
+        }
+    }
+}

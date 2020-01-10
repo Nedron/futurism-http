@@ -1,0 +1,26 @@
+.card-notif {
+    position: absolute;
+    z-index: 50;
+    background-color: rgba(0,0,0,.66);
+    font-size: 32px;
+    padding: 5px 15px;
+    pointer-events: none;
+    animation: notif-anim 0.6s;
+}
+
+.card-notif.danger {
+    color: red;
+}
+
+.card-notif.good {
+    color: green;
+}
+
+@keyframes notif-anim {
+    0% {
+        transform: translate3d(0, 50px, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}

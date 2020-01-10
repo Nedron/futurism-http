@@ -1,0 +1,49 @@
+<div id="title-screen">
+
+    <div id="title-screen-center" class="absolute-center inverse">
+        
+        <h1 id="title-logo" fader-waver>
+            <span>F</span><span>U</span><span>T</span><span>U</span><span>R</span><span>I</span><span>S</span><span>M</span>
+        </h1>
+        
+        <h1 id="title-logo-2" fader-waver>
+            <span>F</span><span>U</span><span>T</span><span>U</span><span>R</span><span>I</span><span>S</span><span>M</span>
+        </h1>
+        
+        <ul id="title-buttons" ng-if="!me.userId">
+            <li>
+                <button class="btn btn-big" ng-click="login()"><img class="site-logo" ng-src="/images/sites/{{defaultSite()}}-32x32.png"/>{{lang.title.login}}</button>
+            </li>
+            <li>
+                <div ng-if="!websites.forceSite" id="more-sites" class="dropdown" is-open="isopen">
+                    <a class="dropdown-toggle">Use a Different Account <b class="caret"></b></a>
+                    <ul class="dropdown-menu" ng-click="isopen=false">
+                        <li ng-repeat="site in websites.getAllowedSites()" ng-if="site.id !== defaultSite()" ng-click="selectSite(site.id)">
+                            <a>
+                                <img class="small-site-logo" ng-src="/images/sites/{{site.id}}.png"/>{{site.name}}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-if="websites.forceSite" id="more-sites">
+                    <a ng-click="selectSite('g')">Play as Guest</a>
+                </div>
+            </li>
+        </ul>
+        
+        <ul id="title-buttons" ng-if="me.userId">
+            <li>
+                <a ng-href="/lobby"><button class="btn btn-big">
+                    <img class="site-logo" ng-if="me.user._id" ng-src="/globe/avatars/{{me.user._id}}-32x32.gif"/>Play
+                </button></a>
+            </li>
+            <li>
+                <div id="title-logout">
+                    <a ng-click="logout()">Log Out</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    <!--<a ng-href="/game/1/lala"><button class="btn btn-big">Shortcut</button></a>-->
+</div>

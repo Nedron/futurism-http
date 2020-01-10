@@ -1,0 +1,67 @@
+{
+    "customGameModal": {
+        
+        "title": {
+            "en": "Game Builder",
+            "fr": "Éditeur de partie",
+            "ru": "Матч Производителя",
+            "sv": "Spel Skapare"
+        },
+        
+        "rows": {
+            "en": "Rows",
+            "fr": "Rangées",
+            "ru": "Строки",
+            "sv": "Rader"
+        },
+        
+        "columns": {
+            "en": "Columns",
+            "fr": "Colonnes",
+            "ru": "Колонны",
+            "sv": "Kolummer"
+        },
+        
+        "deckSize": {
+            "en": "Deck Size",
+            "fr": "Taille du paquet",
+            "ru": "Размер Колоды",
+            "sv": "Deckstorlek"
+        },
+        
+        "futures": {
+            "en": "Futures",
+            "fr": "Futurs",
+            "ru": "Фьючерсы",
+            "sv": "Framtid"
+        },
+        
+        "players": {
+            "en": "Players",
+            "fr": "Joueurs",
+            "ru": "Игроки",
+            "sv": "Spelare"
+        },
+        
+        "startPride": {
+            "en": "Start Pride",
+            "fr": "Valeur de départ",
+            "ru": "Начиная Гордость",
+            "sv": "Startpride"
+        },
+        
+        "start": {
+            "en": "Start Game",
+            "fr": "Commencer la partie",
+            "ru": "Начинай",
+            "sv": "Starta Spel"
+        },
+        
+        "close": {
+            "en": "Close",
+            "fr": "Fermer",
+            "ru": "Закрой",
+            "sv": "Stäng"
+        }
+    }
+}

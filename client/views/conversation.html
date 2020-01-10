@@ -1,0 +1,19 @@
+<div id="conversation" class="col-sm-12">
+
+    <p ng-if="convo.length" class="row">
+        <a ng-click="reportConversation()">{{lang.messages.report}}</a> |
+        <a ng-click="deleteConversation()">{{lang.messages.delete}}</a>
+    </p>
+    
+    <convo class="row" messages="convo"></convo>
+
+    <form ng-hide="convo" ng-submit="sendMessage()" class="row">
+        <div class="input-group">
+            <input class="form-control" type="text" ng-model="typedMessage" maxlength="200">
+            <span class="input-group-btn">
+                <button class='btn btn-primary' type="submit" ng-click="sendMessage()">send</button>
+            </span>
+        </div>
+    </form>
+
+</div>

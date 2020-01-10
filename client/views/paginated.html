@@ -1,0 +1,5 @@
+<div class="paginated">
+    <pagination ng-if="show === 'both' || show === 'top'" ng-model="page" items-per-page="{{itemsPerPage}}" total-items="pageCount * itemsPerPage" max-size="5" ng-change="selectPage(page)"></pagination>
+    <div class="paginated-content" ng-transclude></div>
+    <pagination ng-if="show === undefined || show === 'bottom' || show === 'both'" ng-model="page" items-per-page="{{itemsPerPage}}" total-items="pageCount * itemsPerPage" max-size="5" ng-change="selectPage(page)"></pagination>
+</div>

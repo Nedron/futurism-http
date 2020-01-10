@@ -1,0 +1,36 @@
+{
+    "applicantModal": {
+        
+        "title": {
+            "en": "Applications",
+            "ne": "Toepassingen",
+            "fr": "Applications",
+            "pi": "Potentials",
+            "ru": "Заявки"
+        },
+        
+        "close": {
+            "en": "Close",
+            "ne": "Sluiten",
+            "fr": "Fermer",
+            "pi": "Seal",
+            "ru": "Закрой"
+        },
+        
+        "accept": {
+            "en": "Accept",
+            "ne": "Accepteren",
+            "fr": "Accepter",
+            "pi": "Accept",
+            "ru": "Принимай"
+        },
+        
+        "delete": {
+            "en": "Delete",
+            "ne": "Verwijderen",
+            "fr": "Supprimer",
+            "pi": "Burn",
+            "ru": "Стирай"
+        }
+    }
+}

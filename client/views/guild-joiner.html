@@ -1,0 +1,45 @@
+<div id="guild-joiner" class="col-md-12">
+
+    <h1 class="inverse">{{lang.guildJoiner.title}}</h1>
+
+    <paginated resource="GuildResource" results="guilds" query="query">
+
+        <ul class="list-group clearfix">
+            <li class="list-group-item" ng-repeat="guild in guilds">
+
+                <banner guild="guild"></banner>
+                <ul>
+                    <li>
+                        {{lang.guildStats.leaders}}:
+                        <span ng-repeat="owner in guild.owners">
+                        <username user="owner"></username>
+                    </span>
+                    </li>
+                    <li>
+                        {{lang.guildStats.members}}: <b>{{guild.members.length}}</b>
+                    </li>
+                    <li>
+                        {{lang.guildStats.gpToday}}: <b>{{guild.gpDay}}</b>
+                    </li>
+                    <li>
+                        {{lang.guildStats.founded}}: <b>{{guild.createdDate | date}}</b>
+                    </li>
+                    <li ng-if="guild.desc">
+                        <p>
+                            --
+                            <br>{{guild.desc}}
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <busy-button class="btn btn-primary" on-click="joinGuild(guild)" label="{{lang.guildJoiner.join}}"></busy-button>
+                        </p>
+                    </li>
+                </ul>
+
+            </li>
+        </ul>
+
+    </paginated>
+
+</div>

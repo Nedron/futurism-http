@@ -1,0 +1,209 @@
+@import "base";
+@import "animations/attack";
+@import "animations/battlecry";
+@import "animations/card-flasher";
+@import "animations/card-notif";
+@import "animations/death";
+@import "animations/future";
+@import "animations/grabber";
+@import "animations/heal";
+@import "animations/life";
+@import "animations/recharge";
+@import "animations/summon";
+@import "animations/transformer";
+@import "animations/turn-animation";
+@import "card";
+@import "card-magnify";
+@import "card-builder";
+@import "card-selector";
+@import "chat";
+@import "credits";
+@import "deck";
+@import "deck-selector";
+@import "future-display";
+@import "fracture-modal";
+@import "game";
+@import "guild-banner";
+@import "guild-joiner";
+@import "invites-modal";
+@import "loadup-futures";
+@import "lobby";
+@import "music-player-2";
+@import "navbar";
+@import "progress-display";
+@import "store";
+@import "title";
+@import "username";
+@import "you-panel";
+
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    //background-image: url("/images/bg-960x600.jpg");
+    background-image: url("/images/bg-1920x1200.jpg");
+    background-color: #000000;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+/*@media (min-width: 960px) and (min-height: 600px) {
+    body {
+        background-image: url("/images/bg-1920x1200.jpg");
+    }
+}*/
+
+#main-container {
+    padding: 70px;
+}
+
+
+/////////////////////////////////////
+// headers
+///////////////////////////////////
+h1 {
+    color: $light-blend;
+    margin: 15px 0px 10px -5px;
+}
+
+h1.inverse, .inverse h1 {
+    color: $light-contrast;
+    text-shadow: 2px 2px black;
+}
+
+h3 {
+    color: $light-blend;
+}
+
+h3.inverse, .inverse h3 {
+    color: $dark-contrast;
+    text-shadow: none;
+    text-shadow: 2px 2px black;
+}
+
+
+////////////////////////////////////////////
+//
+//////////////////////////////////////////
+.form-control-big {
+    font-size: 32px;
+    height: 58px;
+    color: $light-blend;
+    margin-left: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+.side-panel a:hover {
+    color: $dark-contrast;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.side-panel {
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.side-panel h1 {
+    margin-top: 0px;
+}
+
+.panel-segment {
+    padding: 0 0 15px 0;
+}
+
+.inverse {
+    color: white;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.username {
+    cursor: pointer;
+}
+
+.modal-header, .modal-header h1 {
+    color: $light-contrast;
+}
+
+.navbar-right {
+    padding-right: 20px;
+}
+
+.inverse .username-large {
+    color: $light-contrast;
+}
+
+.nav, .pagination, .carousel a {
+    cursor: pointer;
+}
+
+.logging-in {
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: darkgray;
+    margin: 20px;
+    padding: 20px;
+    font-size: 24px;
+    z-index: 9999;
+}
+
+.absolute-center {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.panel-default {
+    background-color: rgba(255, 255, 255, 0.9);
+    @include box-shadow(2px, 2px, 7px, rgba(0, 0, 0, 0.7));
+}
+
+.subtle {
+    font-size: 10px;
+    color: grey;
+}
+
+
+
+.list-group .list-group-item {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 0;
+}
+
+
+.btn-big {
+    font-size: 32px;
+    background-color: darken($dark-contrast, 20);
+    color: white;
+    font-weight: bold;
+    border: 1px solid white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.33);
+}
+
+.btn-big:hover {
+    background-color: darken($dark-contrast, 30);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+.dropdown-menu li a {
+    padding: 10px;
+}
+
+@media (max-width: 767px) {
+    .navbar-nav .open .dropdown-menu>li>a, .navbar-nav .open .dropdown-menu .dropdown-header {
+        padding: 10px 15px 10px 25px;
+    }
+}

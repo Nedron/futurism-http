@@ -1,0 +1,63 @@
+{
+    "guildCreateModal": {
+        
+        "createGuild": {
+            "en": "Create Guild",
+            "ne": "Maak Gilde",
+            "lt": "Sukurti Gildiją",
+            "pi": "Found guild",
+            "nb": "Lag et laug",
+            "fr": "Créer une guilde",
+            "pl": "Załóz gildie",
+            "sv": "Skapa ett Guild"
+        },
+        
+        "edit": {
+            "en": "Edit",
+            "ne": "Bewerken",
+            "fr": "Modifier",
+            "pi": "Fix",
+            "sv": "Modifiera"
+        },
+        
+        "name": {
+            "en": "Name",
+            "ne": "Naam",
+            "fr": "Nom",
+            "pi": "Name",
+            "sv": "Namn"
+        },
+        
+        "desc": {
+            "en": "Desc",
+            "ne": "Beschrijving",
+            "fr": "Description",
+            "pi": "Reputation",
+            "sv": "Beskrivning"
+        },
+        
+        "joinPolicy": {
+            "en": "Join Policy",
+            "ne": "Regels voor nieuwe leden",
+            "lt": "Įstojimo tipas",
+            "pi": "Enlistment policy",
+            "nb": "Deltagelsesregler",
+            "fr": "Politique d'adhésion",
+            "pl": "Warunki dołączenia",
+            "hu": "Csatlakozási Beállítás",
+            "sv": "Medlemsregler"
+        },
+
+        "banner": {
+            "en": "Banner",
+            "ne": "Logo",
+            "lt": "Logotipas",
+            "pi": "Flag",
+            "nb": "Banner",
+            "fr": "Bannière",
+            "pl": "Banner",
+            "hu": "Logó",
+            "sv": "Banner"
+        }
+    }
+}
