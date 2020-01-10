@@ -1,6 +1,7 @@
 'use strict';
 
 //--- initialize
+require('./config/env.js');
 var express = require('express');
 var expr = express();
 var httpServer = require('http').createServer(expr);
