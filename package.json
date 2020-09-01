@@ -17,7 +17,7 @@
     "request": "~2.27.0",
     "imager": "~0.2.0",
     "aws-sdk": "~1.7.1",
-    "mongoose": "~3.6.20",
+    "mongoose": "~5.10.2",
     "mongoose-validator": "~0.2.2",
     "validator": "~1.5.1",
     "lodash": "~2.4.1",
